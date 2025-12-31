@@ -1,36 +1,42 @@
 [
   {
-    "id": "project-1",
-    "title": "品牌视觉设计",
-    "subtitle": "为科技公司打造的全新视觉系统",
-    "coverImage": "/images/cover.jpg",
-    "tags": ["品牌设计", "视觉识别", "2024"],
-    "date": "2024-01",
-    "description": "这是一个关于品牌视觉设计的详细项目说明。项目旨在为一家科技公司打造全新的视觉识别系统，包括标志设计、色彩系统、字体规范等。",
-    "images": [
-      "/images/projects/brand-design-1.jpg",
-      "/images/projects/brand-design-2.jpg"
-    ],
-    "videos": []
+    "id": "p1-habit-app",
+    "title": "DailyFlow - 习惯打卡应用",
+    "subtitle": "Figma / UI设计 / 基础版本",
+    "coverImage": "/images/project-01/cover.jpg",
+    "tags": ["Figma", "Product Design", "Minimalist UI"],
+    "date": "2024-09",
+    "description": "一款专注于帮助用户建立长期习惯的极简应用。设计重点在于清晰的任务流和无压力的打卡体验。通过构建直观的界面层级和微交互反馈，降低用户的认知负担，促进持续使用。",
+    "images": []
   },
   {
-    "id": "project-2",
-    "title": "移动应用界面设计",
-    "subtitle": "提升用户体验的移动端产品设计",
-    "coverImage": "/images/projects/mobile-app-cover.jpg",
-    "tags": ["移动设计", "UI/UX", "2024"],
-    "date": "2024-02",
-    "description": "这是一个移动应用界面设计项目，专注于提升用户体验和界面美观度。",
-    "images": [
-      "/images/projects/mobile-app-1.jpg",
-      "/images/projects/mobile-app-2.jpg"
-    ],
-    "videos": [
-      {
-        "url": "https://example.com/video.mp4",
-        "thumbnail": "/images/projects/video-thumb.jpg"
-      }
-    ]
+    "id": "p2-grad-extension",
+    "title": "DailyFlow Pro - 毕业设计延伸探索",
+    "subtitle": "系统深化 / 数据可视化 / 情感化交互",
+    "coverImage": "/images/project-02/cover.jpg",
+    "tags": ["UX Research", "System Design", "Data Visualization"],
+    "date": "2025-01",
+    "description": "基于 DailyFlow 基础版本的深度迭代。作为毕业设计的一部分，此阶段引入了更复杂的成就系统、社交激励机制以及个人数据可视化看板。旨在探讨如何通过情感化设计和数据反馈提升用户的长期留存率。",
+    "images": []
+  },
+  {
+    "id": "p3-ue5-wip",
+    "title": "Project: 虚幻边界 (WIP)",
+    "subtitle": "UE5 / 交互式空间体验 / 开发中",
+    "coverImage": "/images/project-03/placeholder.jpg",
+    "tags": ["Unreal Engine 5", "Spatial Interaction", "Experimental"],
+    "date": "In Progress",
+    "description": "【正在开发中】一个基于虚幻引擎 5 的实验性项目。计划探索数字空间中的环境叙事能力，利用 Lumen 实时光影技术和复杂的交互蓝图，构建一个沉浸式的虚拟体验场所。",
+    "images": []
+  },
+  {
+    "id": "p4-post-modern",
+    "title": "Neo-Habit: 后现代风格重构实验",
+    "subtitle": "视觉实验 / 酸性设计 / 色彩构成",
+    "coverImage": "/images/project-04/cover.jpg",
+    "tags": ["Post-modern", "Visual Exploration", "Acid Graphics"],
+    "date": "2025-02",
+    "description": "一次激进的风格探索实验。选取了 DailyFlow 的功能框架作为基础,但完全抛弃了功能主义的设计原则。采用高饱和度的撞色、反常规的排版和酸性(Acid)图形元素，试图打破传统 UI 的秩序感，探索后现代美学在界面设计中的边界。",
+    "images": []
   }
 ]
-
