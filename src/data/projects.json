@@ -1,0 +1,36 @@
+[
+  {
+    "id": "project-1",
+    "title": "品牌视觉设计",
+    "subtitle": "为科技公司打造的全新视觉系统",
+    "coverImage": "/images/cover.jpg",
+    "tags": ["品牌设计", "视觉识别", "2024"],
+    "date": "2024-01",
+    "description": "这是一个关于品牌视觉设计的详细项目说明。项目旨在为一家科技公司打造全新的视觉识别系统，包括标志设计、色彩系统、字体规范等。",
+    "images": [
+      "/images/projects/brand-design-1.jpg",
+      "/images/projects/brand-design-2.jpg"
+    ],
+    "videos": []
+  },
+  {
+    "id": "project-2",
+    "title": "移动应用界面设计",
+    "subtitle": "提升用户体验的移动端产品设计",
+    "coverImage": "/images/projects/mobile-app-cover.jpg",
+    "tags": ["移动设计", "UI/UX", "2024"],
+    "date": "2024-02",
+    "description": "这是一个移动应用界面设计项目，专注于提升用户体验和界面美观度。",
+    "images": [
+      "/images/projects/mobile-app-1.jpg",
+      "/images/projects/mobile-app-2.jpg"
+    ],
+    "videos": [
+      {
+        "url": "https://example.com/video.mp4",
+        "thumbnail": "/images/projects/video-thumb.jpg"
+      }
+    ]
+  }
+]
+

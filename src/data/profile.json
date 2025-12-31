@@ -1,0 +1,19 @@
+{
+  "siteTitle": "我的设计作品集",
+  "name": "若见花",
+  "role": "交互设计师 / UI Designer",
+  "bio": "专注于数字产品的用户体验设计，致力于创造直观、优雅且功能强大的界面。",
+  "avatar": "/images/avatar.jpg",
+  "socialLinks": {
+    "email": "your.email@example.com",
+    "behance": "https://behance.net/yourname",
+    "linkedin": "https://linkedin.com/in/yourname",
+    "dribbble": "https://dribbble.com/yourname",
+    "github": "https://github.com/yourname"
+  },
+  "seo": {
+    "keywords": ["交互设计", "UI设计", "用户体验", "产品设计", "界面设计"],
+    "description": "专业交互设计师的个人作品集，展示最新的设计项目和思考"
+  }
+}
+
