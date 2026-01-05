@@ -17,10 +17,11 @@ const Home = () => {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative w-full lg:w-[38%] bg-black text-white min-h-[60vh] lg:h-screen lg:sticky lg:top-0 flex flex-col justify-center p-8 lg:p-16 border-r border-zinc-800 overflow-hidden"
+        // 修改点：min-h改为 screen 确保手机上装饰元素有足够空间展示，防止重叠
+        className="relative w-full lg:w-[38%] bg-black text-white min-h-screen lg:h-screen lg:sticky lg:top-0 flex flex-col justify-center p-8 lg:p-16 border-r border-zinc-800 overflow-hidden"
       >
         
-        {/* --- INDUSTRIAL FRAME SYSTEM (白色线条框架) --- */}
+        {/* --- INDUSTRIAL FRAME SYSTEM (白色线条框架 - 全部保留) --- */}
         
         {/* Top-Left Corner */}
         <div className="absolute top-20 left-6 w-8 h-8 border-l-2 border-t-2 border-white/80"></div>
@@ -51,9 +52,10 @@ const Home = () => {
         </div>
 
         {/* --- CONTENT --- */}
-        <div className="relative z-10 max-w-lg mt-10">
+        {/* 修改点：增加了 pb-20 防止手机端文字太长被底部的装饰遮挡 */}
+        <div className="relative z-10 max-w-lg mt-10 pb-20 lg:pb-0">
           
-          {/* Avatar Area */}
+          {/* Avatar Area (头像及旁边元素完全保留) */}
           <div className="mb-8 relative inline-block">
              <img 
                src={profileData.avatar} 
@@ -66,7 +68,8 @@ const Home = () => {
           </div>
 
           {/* Typography (白色文字) */}
-          <h1 className="text-6xl font-bold tracking-tighter mb-4 text-white">
+          {/* 修改点：text-6xl 改为 text-4xl lg:text-6xl，手机显示更协调 */}
+          <h1 className="text-4xl lg:text-6xl font-bold tracking-tighter mb-4 text-white">
             {profileData.name}
           </h1>
           <div className="flex items-center gap-3 mb-8">
@@ -111,7 +114,8 @@ const Home = () => {
           RIGHT PROJECTS SECTION 
           (保持亮灰色 - 形成黑白切割)
          ======================= */}
-      <div className="flex-1 bg-zinc-50 min-h-screen pt-24 px-8 lg:px-24 relative">
+      {/* 修改点：px-8 lg:px-24 (调整内边距), pt-16 lg:pt-24 (调整顶部距离) */}
+      <div className="flex-1 bg-zinc-50 min-h-screen pt-16 px-6 lg:pt-24 lg:px-24 relative">
         
         {/* Header Line & Label */}
         <div className="w-full border-t border-dashed border-zinc-300 mb-16 relative">
@@ -121,7 +125,8 @@ const Home = () => {
         </div>
 
         {/* Grid System */}
-        <div className="grid grid-cols-1 gap-y-32 pb-32">
+        {/* 修改点：gap-y-20 lg:gap-y-32 (手机上卡片间距稍微紧凑一点) */}
+        <div className="grid grid-cols-1 gap-y-20 lg:gap-y-32 pb-32">
           {projectsData.map((project, index) => (
             <ProjectCard 
               key={project.id} 

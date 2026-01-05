@@ -20,14 +20,27 @@
     "images": []
   },
   {
-    "id": "p3-ue5-wip",
-    "title": "Project: 虚幻边界 (WIP)",
-    "subtitle": "UE5 / 交互式空间体验 / 开发中",
-    "coverImage": "/images/project-03/placeholder.jpg",
-    "tags": ["Unreal Engine 5", "Spatial Interaction", "Experimental"],
-    "date": "In Progress",
-    "description": "【正在开发中】一个基于虚幻引擎 5 的实验性项目。计划探索数字空间中的环境叙事能力，利用 Lumen 实时光影技术和复杂的交互蓝图，构建一个沉浸式的虚拟体验场所。",
-    "images": []
+    "id": "p3-unity-corridor",
+    "title": "Project: 无限回廊 (The Corridor)",
+    "subtitle": "Unity 3D / 心理恐怖 / 沉浸式交互",
+    "coverImage": "/images/project-03/cover.png", 
+    "tags": ["Unity", "C#", "Game Design", "Psychological Horror"],
+    "date": "2026-01",
+    "description": "独立开发的心理恐怖游戏...",
+    "images": [
+      "/images/project-03/game-01.png",
+      "/images/project-03/game-02.png",
+      "/images/project-03/game-03.png",
+      "/images/project-03/game-04.png",
+      "/images/project-03/game-05.png",
+      "/images/project-03/game-06.png",
+      "/images/project-03/game-07.png",
+      "/images/project-03/game-08.png",
+      "/images/project-03/game-09.png",
+      "/images/project-03/game-10.png",
+      "/images/project-03/game-11.png",
+      "/images/project-03/end1.png"
+    ]
   },
   {
     "id": "p4-post-modern",

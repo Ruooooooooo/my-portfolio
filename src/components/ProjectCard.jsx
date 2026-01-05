@@ -1,88 +1,94 @@
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
-import ImageComponent from './ImageComponent'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Github, Folder } from 'lucide-react';
 
-function ProjectCard({ project, index }) {
-  // 格式化序号：01, 02, 03...
-  const formattedIndex = String(index + 1).padStart(2, '0')
+const ProjectCard = ({ project, index }) => {
+  // 判断是否为偶数项，用于桌面端左右交替布局
+  const isEven = index % 2 === 0;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.5,
-        delay: index * 0.1, // Stagger 动画：每个卡片延迟递增
-        ease: 'easeOut',
-      }}
-      className="group relative overflow-visible"
+    <motion.div 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      // Mobile: Flex-col (垂直), Desktop: Flex-row (水平) 或 Flex-row-reverse (反向水平)
+      className={`group flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}
     >
-      <Link to={`/project/${project.id}`} className="block h-full">
-        <div className="relative h-full overflow-visible bg-white border border-zinc-200 hover:border-zinc-300 transition-all duration-300">
-          {/* 巨大的背景水印序号 - 强制"破格"，彻底出圈 */}
-          <div className="absolute -top-24 -right-16 z-0 pointer-events-none">
-            <span className="text-[12rem] leading-none font-black text-zinc-200/50 select-none font-sans-en">
-              {formattedIndex}
-            </span>
-          </div>
+      
+      {/* --- IMAGE SECTION --- */}
+      {/* Mobile: w-full, Order-1 (始终在最前) */}
+      <div className="w-full lg:w-3/5 relative order-1">
+        {/* 工业风装饰框 - 仅在大屏显示连接线，手机端简化为边框 */}
+        <div className="absolute -inset-2 border border-zinc-200/50 border-dashed opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        {/* 装饰角标 */}
+        <div className="absolute -top-1 -left-1 w-2 h-2 bg-zinc-800 z-10"></div>
+        <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-zinc-800 z-10"></div>
 
-          {/* 内容容器 - 包含图片和文字，确保在数字之上 */}
-          <div className="relative z-10">
-            {/* 图片区域 - 占满卡片 */}
-            <div className="aspect-[4/3] relative overflow-hidden bg-zinc-100">
-              <ImageComponent
-                src={project.coverImage}
-                alt={project.title}
-                aspectRatio="4/3"
-                className="group-hover:scale-105 transition-transform duration-500 ease-out"
-              />
-              
-              {/* 悬停遮罩层 */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
-              
-              {/* View Project 箭头 - 悬停时显示 */}
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                whileHover={{ opacity: 1, x: 0 }}
-                className="absolute bottom-4 right-4 hidden md:flex items-center space-x-2 text-white bg-black/50 backdrop-blur-sm px-3 py-1.5 rounded z-20"
-              >
-                <span className="text-xs font-medium">View</span>
-                <ArrowRight className="w-3 h-3" />
-              </motion.div>
-            </div>
-
-            {/* 文字内容区域 - 灰色背景面 */}
-            <div className="p-4 md:p-5 bg-zinc-50 border-t border-zinc-200">
-              {/* 标签 - 胶囊形状，浅灰色 */}
-              <div className="flex flex-wrap gap-2 mb-3">
-                {project.tags.slice(0, 2).map((tag, tagIndex) => (
-                  <span
-                    key={tagIndex}
-                    className="text-xs font-medium text-zinc-400 px-2 py-0.5 bg-zinc-100 rounded border border-zinc-200"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* 标题 - 精致字重，深灰色 */}
-              <h2 className="text-base md:text-lg font-bold text-zinc-900 mb-2 group-hover:text-zinc-700 transition-colors leading-tight">
-                {project.title}
-              </h2>
-
-              {/* 副标题 - 中灰色 */}
-              {project.subtitle && (
-                <p className="text-sm text-zinc-600 line-clamp-2 leading-relaxed">
-                  {project.subtitle}
-                </p>
-              )}
-            </div>
-          </div>
+        <div className="relative overflow-hidden bg-zinc-200 aspect-video group-hover:shadow-2xl transition-all duration-500">
+          <img 
+            src={project.image} 
+            alt={project.title} 
+            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out transform group-hover:scale-105"
+          />
+          {/* 图片覆盖层：只有hover时消失 */}
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
         </div>
-      </Link>
-    </motion.div>
-  )
-}
+      </div>
 
-export default ProjectCard
+      {/* --- TEXT SECTION --- */}
+      {/* Mobile: w-full, Order-2 (始终在后) */}
+      <div className="w-full lg:w-2/5 flex flex-col justify-center order-2">
+        {/* 序号装饰：在手机端稍微调小一点 */}
+        <div className="flex items-center gap-4 mb-4">
+           <span className="text-4xl lg:text-5xl font-bold font-mono text-zinc-200 select-none">
+             {String(index + 1).padStart(2, '0')}
+           </span>
+           <div className="h-[1px] bg-zinc-300 flex-1"></div>
+        </div>
+
+        <h3 className="text-2xl font-bold text-zinc-900 mb-3 group-hover:text-zinc-600 transition-colors">
+          {project.title}
+        </h3>
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.tech.map((tech) => (
+            <span key={tech} className="px-2 py-1 bg-zinc-100 text-zinc-600 text-[10px] uppercase tracking-wider font-mono border border-zinc-200">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <p className="text-zinc-500 leading-relaxed mb-8 text-sm">
+          {project.description}
+        </p>
+
+        <div className="flex gap-4 items-center">
+          <a 
+            href={project.links.live} 
+            target="_blank" 
+            rel="noreferrer"
+            className="flex items-center gap-2 px-5 py-2 bg-zinc-900 text-white text-xs font-bold tracking-widest hover:bg-zinc-700 transition-colors"
+          >
+            VIEW_PROJECT <ArrowUpRight size={14} />
+          </a>
+          
+          {project.links.github && (
+            <a 
+              href={project.links.github} 
+              target="_blank" 
+              rel="noreferrer"
+              className="p-2 border border-zinc-300 text-zinc-600 hover:border-zinc-900 hover:text-zinc-900 transition-colors"
+            >
+              <Github size={18} />
+            </a>
+          )}
+        </div>
+      </div>
+
+    </motion.div>
+  );
+};
+
+export default ProjectCard;
