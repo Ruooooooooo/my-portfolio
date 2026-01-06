@@ -3,10 +3,15 @@
     "id": "p1-habit-app",
     "title": "DailyFlow - 习惯打卡应用",
     "subtitle": "Figma / UI设计 / 基础版本",
-    "coverImage": "/images/project-01/cover.jpg",
+    "coverImage": "/images/project-02/cover.jpg",
     "tags": ["Figma", "Product Design", "Minimalist UI"],
+    "tech": ["Figma", "Product Design", "Minimalist UI"],
     "date": "2024-09",
-    "description": "一款专注于帮助用户建立长期习惯的极简应用。设计重点在于清晰的任务流和无压力的打卡体验。通过构建直观的界面层级和微交互反馈，降低用户的认知负担，促进持续使用。",
+    "description": "一款专注于帮助用户建立长期习惯的极简应用。设计重点在于清晰的任务流和无压力的打卡体验。",
+    "links": {
+      "live": "#",
+      "github": "#"
+    },
     "images": []
   },
   {
@@ -15,41 +20,92 @@
     "subtitle": "系统深化 / 数据可视化 / 情感化交互",
     "coverImage": "/images/project-02/cover.jpg",
     "tags": ["UX Research", "System Design", "Data Visualization"],
+    "tech": ["UX Research", "System Design", "Data Visualization"],
     "date": "2025-01",
-    "description": "基于 DailyFlow 基础版本的深度迭代。作为毕业设计的一部分，此阶段引入了更复杂的成就系统、社交激励机制以及个人数据可视化看板。旨在探讨如何通过情感化设计和数据反馈提升用户的长期留存率。",
+    "description": "基于 DailyFlow 基础版本的深度迭代。此阶段引入了更复杂的成就系统、社交激励机制以及个人数据可视化看板。",
+    "links": {
+      "live": "#",
+      "github": "#"
+    },
     "images": []
   },
   {
     "id": "p3-unity-corridor",
     "title": "Project: 无限回廊 (The Corridor)",
     "subtitle": "Unity 3D / 心理恐怖 / 沉浸式交互",
-    "coverImage": "/images/project-03/cover.png", 
+    "coverImage": "/images/project-03/cover.png",
     "tags": ["Unity", "C#", "Game Design", "Psychological Horror"],
+    "tech": ["Unity", "C#", "Game Design", "Psychological Horror"],
     "date": "2026-01",
     "description": "独立开发的心理恐怖游戏...",
+    "links": {
+      "live": "#",
+      "github": "#"
+    },
     "images": [
-      "/images/project-03/game-01.png",
-      "/images/project-03/game-02.png",
-      "/images/project-03/game-03.png",
-      "/images/project-03/game-04.png",
-      "/images/project-03/game-05.png",
-      "/images/project-03/game-06.png",
-      "/images/project-03/game-07.png",
-      "/images/project-03/game-08.png",
-      "/images/project-03/game-09.png",
-      "/images/project-03/game-10.png",
-      "/images/project-03/game-11.png",
-      "/images/project-03/end1.png"
+      {
+        "url": "/images/project-03/game-01.png",
+        "caption": "LEVEL 01: 初始回廊 - 这里的灯光是完全正常的，用来降低玩家警惕"
+      },
+      {
+        "url": "/images/project-03/game-02.png",
+        "caption": "LEVEL 01: 初始回廊 - 循环触发点"
+      },
+      {
+        "url": "/images/project-03/game-03.png",
+        "caption": "LEVEL 01: 初始回廊 - 墙上海报装饰"
+      },
+      {
+        "url": "/images/project-03/game-04.png",
+        "caption": "LEVEL 02: 二层回廊 - 灯光和障碍物有所变化"
+      },
+      {
+        "url": "/images/project-03/game-05.png",
+        "caption": "LEVEL 02: 二层回廊 - 墙上海报有所变化"
+      },
+      {
+        "url": "/images/project-03/game-06.png",
+        "caption": "LEVEL 03: 三层回廊 - 灯光有明显变化，障碍物明显增加"
+      },
+      {
+        "url": "/images/project-03/game-07.png",
+        "caption": "LEVEL 03: 三层回廊 - 拐角处异常触发点"
+      },
+      {
+        "url": "/images/project-03/game-08.png",
+        "caption": "LEVEL 03: 三层回廊 - 墙上海报和选择边框明显变化"
+      },
+      {
+        "url": "/images/project-03/game-09.png",
+        "caption": "LEVEL 04: 四层回廊 - 走廊灯光明显变红，障碍物明显增加，并且位置开始无规则变化"
+      },
+      {
+        "url": "/images/project-03/game-10.png",
+        "caption": "LEVEL 05: 五层回廊 - 走廊灯光更加变红，障碍物减少，并且位置扭曲严重"
+      },
+      {
+        "url": "/images/project-03/game-11.png",
+        "caption": "LEVEL 05: 五层回廊 - 循环触发点以及boss所在地"
+      },
+      {
+        "url": "/images/project-03/end1.png",
+        "caption": "结局1,逃亡失败,永远困在回廊中"
+      }
     ]
   },
   {
     "id": "p4-post-modern",
     "title": "Neo-Habit: 后现代风格重构实验",
     "subtitle": "视觉实验 / 酸性设计 / 色彩构成",
-    "coverImage": "/images/project-04/cover.jpg",
+    "coverImage": "/images/project-02/cover.jpg",
     "tags": ["Post-modern", "Visual Exploration", "Acid Graphics"],
+    "tech": ["Post-modern", "Visual Exploration", "Acid Graphics"],
     "date": "2025-02",
-    "description": "一次激进的风格探索实验。选取了 DailyFlow 的功能框架作为基础,但完全抛弃了功能主义的设计原则。采用高饱和度的撞色、反常规的排版和酸性(Acid)图形元素，试图打破传统 UI 的秩序感，探索后现代美学在界面设计中的边界。",
+    "description": "一次激进的风格探索实验。采用高饱和度的撞色、反常规的排版和酸性(Acid)图形元素。",
+    "links": {
+      "live": "#",
+      "github": "#"
+    },
     "images": []
   }
 ]
