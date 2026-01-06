@@ -127,7 +127,7 @@ const Home = () => {
         {/* Grid System */}
         {/* 修改点：gap-y-20 lg:gap-y-32 (手机上卡片间距稍微紧凑一点) */}
         <div className="grid grid-cols-1 gap-y-20 lg:gap-y-32 pb-32">
-          {projectsData.map((project, index) => (
+          {projectsData?.map((project, index) => (
             <ProjectCard 
               key={project.id} 
               project={project} 
