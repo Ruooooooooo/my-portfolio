@@ -1,18 +1,41 @@
 [
   {
-    "id": "p1-habit-app",
-    "title": "DailyFlow - 习惯打卡应用",
-    "subtitle": "Figma / UI设计 / 基础版本",
-    "coverImage": "/images/project-02/cover.jpg",
-    "tags": ["Figma", "Product Design", "Minimalist UI"],
-    "tech": ["Figma", "Product Design", "Minimalist UI"],
-    "date": "2024-09",
-    "description": "一款专注于帮助用户建立长期习惯的极简应用。设计重点在于清晰的任务流和无压力的打卡体验。",
-    "links": {
-      "live": "#",
-      "github": "#"
-    },
-    "images": []
+    "id": "check-in-app",
+    "title": "Daily Flow - 习惯养成与风格探索",
+    "description": "最初我想做一个简单的打卡App,为了求稳,随大流做了现在最常见的极简黑白风(V1)。做完虽然干净，但我自己都觉得无聊，用起来冷冰冰的。我不想它只是个没感情的工具。所以我把它推翻重来(V2)，换成了我现在很迷恋的工业/赛博风格。我加重了光影对比，甚至做了一些故障效果，就是为了让用户在点下'打卡'按钮的那一瞬间，能有一种游戏通关的爽感和仪式感。",
+    "tags": ["UI/UX Design", "Visual Identity", "React"],
+    "images": [
+      {
+        "url": "/images/project-04/v2-login-screen.png",
+        "caption": "V2 登录界面：赛博工业风的视觉冲击，打破常规工具的冰冷感",
+        "category": "⚡ 工业风格 (最终版)"
+      },
+      {
+        "url": "/images/project-01/v2-before-checking-in.png",
+        "caption": "V2 待机状态：高对比度的光影，营造“任务待执行”的紧张氛围",
+        "category": "⚡ 工业风格 (最终版)"
+      },
+      {
+        "url": "/images/project-01/v2-after-checking-in.png",
+        "caption": "V2 完成状态：打卡瞬间的高亮反馈，提供游戏通关般的成就感",
+        "category": "⚡ 工业风格 (最终版)"
+      },
+      {
+        "url": "/images/project-01/v1-login-screen.png",
+        "caption": "V1 登录界面：早期尝试的极简风格，虽然清晰但缺乏个性",
+        "category": "⚪ 极简风格 (初稿)"
+      },
+      {
+        "url": "/images/project-01/v1-before-checking-in.png",
+        "caption": "V1 待机状态：传统的卡片式布局",
+        "category": "⚪ 极简风格 (初稿)"
+      },
+      {
+        "url": "/images/project-01/v1-after-checking-in.png",
+        "caption": "V1 完成状态：简单的勾选反馈，情绪价值较弱",
+        "category": "⚪ 极简风格 (初稿)"
+      }
+    ]
   },
   {
     "id": "p2-grad-extension",
