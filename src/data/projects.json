@@ -94,34 +94,34 @@
     ]
   },
   {
-    "id": "p4-post-modern",
-    "title": "Neo-Habit: 后现代风格重构实验",
-    "subtitle": "视觉实验 / 酸性设计 / 色彩构成",
-    "coverImage": "/images/project-02/cover.jpg",
-    "tags": ["Post-modern", "Visual Exploration", "Acid Graphics"],
-    "tech": ["Post-modern", "Visual Exploration", "Acid Graphics"],
-    "date": "2025-02",
-    "description": "一次激进的风格探索实验。采用高饱和度的撞色、反常规的排版和酸性(Acid)图形元素。",
-    "links": {
-      "live": "#",
-      "github": "#"
-    },
+    "id": "p4-echo-editor",
+      "title": "Project: ECHO (剧情逻辑编辑器)",
+      "subtitle": "UI Design / 游戏工具 / 赛博工业风",
+      "coverImage": "/images/project-04/cover.png",
+      "tags": ["UI/UX", "Game Tool", "Cyberpunk", "Dark UI"],
+      "tech": ["Figma", "Unity", "Design System"],
+      "date": "2026-01",
+      "description": "为了拯救策划发际线而做的暗黑风编辑器。把枯燥的Excel脚本变成可视化的节点连线,写剧情逻辑就像在玩赛博连连看。",
+      "links": {
+        "live": "#",
+        "github": "#"
+      },
     "images": [
       {
       "url": "/images/project-04/page-1.png",
-      "caption": "LEVEL 01: 初始回廊 - 这里的灯光是完全正常的，用来降低玩家警惕"
+      "caption": "ECHO编辑器首页;拯救Excel策划的暗黑风逻辑连线工具,写剧情就像玩连连看"
       },
       {
       "url": "/images/project-04/page2.png",
-      "caption": "LEVEL 01: 初始回廊 - 循环触发点"
+      "caption": "分屏视图;左边点3D机关,右边逻辑节点自动高亮,所见即所得,专治逻辑找不到"
       },
       {
         "url": "/images/project-04/page-3.png",
-        "caption": "LEVEL 01: 初始回廊 - 这里的灯光是完全正常的，用来降低玩家警惕"
+        "caption": "数据监控;实时盯着玩家Sanity值掉没掉,上帝视角Debug专用面板"
       },
       {
         "url": "/images/project-04/page-4.png",
-        "caption": "LEVEL 01: 初始回廊 - 循环触发点"
+        "caption": "UI规范;深灰底色撞荧光绿,配合机械感字体"
       }
     ]
   }
