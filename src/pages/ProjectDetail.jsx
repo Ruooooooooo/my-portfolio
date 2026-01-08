@@ -16,7 +16,6 @@ function ProjectDetail() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // 默认选中第一个有分类的图片的分类
     if (project && project.images && project.images[0]?.category) {
       setActiveTab(project.images[0].category)
     }
@@ -27,34 +26,85 @@ function ProjectDetail() {
     return null
   }
 
-  // 1. 提取所有分类
+  // --- 🎨 核心修改：智能主题配色系统 (包含新增的绿色适老主题) ---
+  const getThemeColors = () => {
+    const tags = (project.tags || []).join(' ').toLowerCase();
+    const title = (project.title || '').toLowerCase();
+    
+    // 1. 🔴 恐怖/游戏风格 (Horror / Game)
+    // 适用：恐怖游戏 demo
+    if (tags.includes('horror') || tags.includes('game') || title.includes('恐怖')) {
+      return {
+        tl: 'from-red-900/20 via-purple-900/10 to-transparent', // 左上冷艳
+        br: 'from-gray-800/20 via-red-950/10 to-transparent',   // 右下压抑
+        tr: 'from-gray-900/10 via-blue-900/5 to-transparent',   // 点缀
+        accent: 'bg-red-900 hover:bg-red-800',                  // 按钮色
+        tagBg: 'bg-red-50/80 text-red-900'                      // 标签色
+      };
+    }
+    
+    // 2. 🟠 工业/硬朗风格 (Industrial / Compiler)
+    // 适用：编译器界面、硬核工具
+    if (tags.includes('industrial') || tags.includes('hard') || title.includes('编译')) {
+      return {
+        tl: 'from-orange-200/50 via-amber-100/30 to-transparent', // 警示橙
+        br: 'from-slate-300/50 via-gray-200/30 to-transparent',    // 金属灰
+        tr: 'from-zinc-200 via-gray-100/20 to-transparent',
+        accent: 'bg-orange-600 hover:bg-orange-700',
+        tagBg: 'bg-orange-50/80 text-orange-800'
+      };
+    }
+
+    // 3. 🟢 适老化/疗愈风格 (Elderly / Care / Green)
+    // 适用：拾光 (Memory Anchor) 老人APP
+    if (tags.includes('elderly') || tags.includes('care') || tags.includes('green') || title.includes('老人') || title.includes('拾光')) {
+      return {
+        // 左上：鼠尾草绿/翡翠绿 (生命力与平静)
+        tl: 'from-emerald-100/60 via-green-100/40 to-transparent',
+        // 右下：暖米色/石灰绿 (纸张纹理感，稳重)
+        br: 'from-stone-100/60 via-lime-50/40 to-transparent',
+        // 右上：清晨柔光
+        tr: 'from-teal-50/40 via-yellow-50/20 to-transparent',
+        // 按钮：深翡翠绿 (高对比度，安全感)
+        accent: 'bg-emerald-700 hover:bg-emerald-800',
+        tagBg: 'bg-emerald-50/80 text-emerald-800'
+      };
+    }
+
+    // 4. 🔵 默认/科技风格 (Tech / Default)
+    // 适用：打卡APP，通用项目
+    return {
+      tl: 'from-blue-100/60 via-purple-100/40 to-transparent',
+      br: 'from-indigo-100/60 via-teal-100/40 to-transparent',
+      tr: 'from-gray-100 via-pink-50/30 to-transparent',
+      accent: 'bg-gray-900 hover:bg-gray-800',
+      tagBg: 'bg-gray-50/80 text-gray-500'
+    };
+  };
+
+  const theme = getThemeColors();
+  // -----------------------------------------------------------
+
   const categories = project.images 
     ? [...new Set(project.images.map(img => img.category).filter(Boolean))]
     : [];
   const showTabs = categories.length > 1;
 
-  // 2. 过滤图片
   const filteredImages = project.images.filter(item => {
     if (typeof item === 'string') return activeTab === 'all';
     return activeTab === 'all' || !item.category || item.category === activeTab;
   });
 
-  // --- 核心修改：智能获取当前应该显示的 Figma 链接 ---
   const getCurrentFigmaUrl = () => {
-    // 情况A: 新版结构，有 prototypes 数组
     if (project.prototypes && project.prototypes.length > 0) {
-      // 尝试找和当前 activeTab 匹配的链接
       const matched = project.prototypes.find(p => p.category === activeTab);
-      // 如果找到了就用匹配的，找不到（比如activeTab是all）就默认用数组第一个
       return matched ? matched.url : project.prototypes[0].url;
     }
-    // 情况B: 旧版结构，只有 figmaUrl 字符串
     return project.figmaUrl || '';
   };
 
   const currentRawUrl = getCurrentFigmaUrl();
 
-  // 处理链接，强制隐藏UI
   const getCleanFigmaUrl = (url) => {
     if (!url) return '';
     if (url.includes('embed.figma.com')) {
@@ -76,12 +126,31 @@ function ProjectDetail() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-900">
-      <Navbar />
+    // 外层容器：相对定位 + 隐藏溢出 (防止光晕撑开滚动条)
+    <div className="min-h-screen flex flex-col bg-white text-gray-900 relative overflow-hidden">
+      
+      {/* --- 背景环境光层 (底层 z-0) --- */}
+      <div className="fixed inset-0 z-0 pointer-events-none transition-colors duration-1000 ease-in-out">
+        {/* 左上角主光源 */}
+        <div className={`absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br ${theme.tl} blur-[100px] opacity-70`} />
+        
+        {/* 右下角辅助光源 */}
+        <div className={`absolute -bottom-[10%] -right-[10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-tl ${theme.br} blur-[100px] opacity-70`} />
+        
+        {/* 右上角高光点缀 */}
+        <div className={`absolute top-[10%] right-[-5%] w-[30vw] h-[30vw] rounded-full bg-gradient-to-bl ${theme.tr} blur-[80px] opacity-50`} />
+      </div>
 
-      <main className="flex-1 pt-20 md:pt-24">
+      {/* --- 导航栏 (z-10) --- */}
+      <div className="relative z-10">
+        <Navbar />
+      </div>
+
+      {/* --- 主内容区 (z-10) --- */}
+      <main className="flex-1 pt-20 md:pt-24 relative z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
           
+          {/* 返回按钮 */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -93,7 +162,7 @@ function ProjectDetail() {
             </Link>
           </motion.div>
 
-          {/* 标题 */}
+          {/* 标题与标签 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,7 +171,7 @@ function ProjectDetail() {
           >
             <div className="flex flex-wrap gap-2 mb-4">
               {(project.tags || []).map((tag, index) => (
-                <span key={index} className="text-sm text-gray-500 px-3 py-1 bg-gray-50 rounded-full font-mono">
+                <span key={index} className={`text-sm px-3 py-1 rounded-full font-mono backdrop-blur-sm ${theme.tagBg}`}>
                   {tag}
                 </span>
               ))}
@@ -110,7 +179,7 @@ function ProjectDetail() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 italic">{project.title}</h1>
           </motion.div>
 
-          {/* 描述 */}
+          {/* 项目描述 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,12 +191,12 @@ function ProjectDetail() {
             </p>
           </motion.div>
 
-          {/* Tab 切换按钮 */}
+          {/* Tab 切换按钮 (吸顶 + 毛玻璃) */}
           {showTabs && (
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex gap-4 mb-10 border-b border-gray-100 pb-6 sticky top-20 bg-white/90 backdrop-blur-sm z-10 pt-4"
+              className="flex gap-4 mb-10 border-b border-gray-100 pb-6 sticky top-20 bg-white/80 backdrop-blur-md z-20 pt-4"
             >
               {categories.map((cat) => (
                 <button
@@ -135,8 +204,8 @@ function ProjectDetail() {
                   onClick={() => setActiveTab(cat)}
                   className={`px-6 py-2 rounded-full text-sm transition-all duration-300 ${
                     activeTab === cat 
-                      ? 'bg-gray-900 text-white shadow-md' 
-                      : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                      ? `${theme.accent} text-white shadow-md` 
+                      : 'bg-gray-100/80 text-gray-500 hover:bg-gray-200'
                   }`}
                 >
                   {cat}
@@ -145,7 +214,7 @@ function ProjectDetail() {
             </motion.div>
           )}
 
-          {/* 图片展示区 */}
+          {/* 图片展示区 (带白色背景卡片) */}
           <div className="space-y-20 mb-20">
             <AnimatePresence mode="wait">
               {filteredImages.map((item, index) => {
@@ -160,7 +229,8 @@ function ProjectDetail() {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     className="flex flex-col gap-4"
                   >
-                    <div className="overflow-hidden rounded-xl shadow-xl shadow-gray-200/50 border border-gray-100">
+                    {/* 图片容器：加bg-white确保图片在半透明背景上显示正常 */}
+                    <div className="overflow-hidden rounded-xl shadow-xl shadow-gray-200/50 border border-gray-100 bg-white">
                       <ImageComponent
                         src={imageUrl}
                         alt={`${project.title} - ${index}`}
@@ -170,7 +240,7 @@ function ProjectDetail() {
                     </div>
                     {caption && (
                       <div className="flex items-start gap-3 px-2">
-                        <span className="text-xs font-mono text-gray-300 mt-1">[{String(index + 1).padStart(2, '0')}]</span>
+                        <span className="text-xs font-mono text-gray-400 mt-1">[{String(index + 1).padStart(2, '0')}]</span>
                         <p className="text-sm text-gray-500 font-medium leading-relaxed">{caption}</p>
                       </div>
                     )}
@@ -180,10 +250,10 @@ function ProjectDetail() {
             </AnimatePresence>
           </div>
 
-          {/* 交互原型区 (会自动根据 Tab 变化) */}
+          {/* 交互原型区 */}
           {currentRawUrl && (
             <motion.div 
-              key={currentRawUrl} // 加这个key，确保链接变了组件会重绘
+              key={currentRawUrl}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -194,14 +264,13 @@ function ProjectDetail() {
                   <Smartphone className="w-6 h-6" /> 
                   可交互原型演示
                 </h3>
-                {/* 显示当前正在预览的版本名，让用户知道换了 */}
                 <p className="text-gray-900 font-bold mt-2">
                     当前预览: {activeTab === 'all' ? '默认版本' : activeTab}
                 </p>
                 <p className="text-gray-400 text-sm font-mono uppercase tracking-widest mt-1">Interactive Prototype</p>
               </div>
 
-              {/* 模拟手机容器 */}
+              {/* 手机外壳容器 */}
               <div className="relative w-full max-w-[375px] aspect-[9/19] bg-black rounded-[3rem] border-[12px] border-gray-900 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] overflow-hidden">
                 <iframe 
                   className="w-full h-full border-none bg-black"
@@ -210,9 +279,10 @@ function ProjectDetail() {
                 ></iframe>
               </div>
 
+              {/* 全屏体验按钮 (跟随主题色) */}
               <button 
                 onClick={openFullScreen}
-                className="mt-8 flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                className={`mt-8 flex items-center gap-2 px-6 py-3 ${theme.accent} text-white rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-1`}
               >
                 <Maximize2 className="w-4 h-4" />
                 在独立窗口中全屏体验
@@ -226,7 +296,11 @@ function ProjectDetail() {
 
         </div>
       </main>
-      <Footer />
+      
+      {/* --- Footer (z-10) --- */}
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   )
 }
