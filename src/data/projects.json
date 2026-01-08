@@ -67,6 +67,7 @@
     "tags": ["UX Research", "System Design", "Data Visualization"],
     "tech": ["UX Research", "System Design", "Data Visualization"],
     "date": "2025-01",
+    "theme": "elderly",
     "description": "基于 DailyFlow 基础版本的深度迭代。此阶段引入了更复杂的成就系统、社交激励机制以及个人数据可视化看板。",
     "links": {
       "live": "#",

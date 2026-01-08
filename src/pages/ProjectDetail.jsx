@@ -26,64 +26,80 @@ function ProjectDetail() {
     return null
   }
 
-  // --- 🎨 核心修改：极致光感 + 强差异化主题系统 ---
   const getThemeColors = () => {
+    // 1. 预处理数据
+    const pTheme = (project.theme || '').toLowerCase(); 
     const tags = (project.tags || []).join(' ').toLowerCase();
     const title = (project.title || '').toLowerCase();
 
-    // 1. 🔴 恐怖/游戏风格 (Horror / Game)
-    // 特征：血红与暗紫的强冲突，四周压迫感
-    if (tags.includes('horror') || tags.includes('game') || title.includes('恐怖')) {
+    // --- 🏳️ 风格 0: Minimal/极简黑白 (保持不动) ---
+    if (pTheme === 'minimal' || tags.includes('minimal') || tags.includes('simple')) {
       return {
-        // 顶部强光（血红）
-        top: 'from-red-600 via-red-900/80 to-transparent',
-        // 底部强光（幽紫）
-        bottom: 'from-purple-900 via-red-950/80 to-transparent',
-        // 左侧侧光
-        left: 'from-red-800/90 via-transparent to-transparent',
-        // 右侧侧光
-        right: 'from-purple-900/90 via-transparent to-transparent',
-        // 按钮高亮
-        accent: 'bg-red-800 hover:bg-red-700 shadow-[0_0_30px_rgba(153,27,27,0.6)]',
-        tagBg: 'bg-red-100 text-red-900 border border-red-200'
+        tl: 'bg-zinc-200/50',      
+        tr: 'bg-gray-200/50',      
+        bl: 'bg-stone-200/50',     
+        br: 'bg-slate-200/50',     
+        accent: 'bg-gray-900 hover:bg-black text-white shadow-lg shadow-gray-200',
+        tagBg: 'bg-white text-gray-800 border border-gray-200 shadow-sm'
       };
     }
 
-    // 2. 🟠 工业/硬朗风格 (Industrial / Compiler)
-    // 特征：高亮警示橙，如同工厂钠灯直射，极度醒目
-    if (tags.includes('industrial') || tags.includes('hard') || title.includes('编译')) {
+    // --- 🟣 风格 1: Cyberpunk/赛博工业 (Project 4 - 修正版：通透不脏) ---
+    // 🎨 配色：深紫(#510074) + 荧光绿(#84FF6B)
+    if (pTheme === 'industrial' || tags.includes('cyberpunk') || title.includes('echo')) {
       return {
-        top: 'from-orange-500 via-amber-500/80 to-transparent',
-        bottom: 'from-amber-600 via-orange-700/80 to-transparent',
-        left: 'from-orange-500/80 via-transparent to-transparent',
-        right: 'from-amber-500/80 via-transparent to-transparent',
-        accent: 'bg-orange-600 hover:bg-orange-500 shadow-[0_0_30px_rgba(234,88,12,0.6)]',
-        tagBg: 'bg-orange-100 text-orange-900 border border-orange-200'
+        // 🔧 关键修改：背景透明度降到 /5 或 /10，保证网页看起来干净清爽
+        tl: 'bg-[#510074]/5',    // 左上：几乎透明的紫气
+        tr: 'bg-[#84FF6B]/15',   // 右上：淡淡的绿光
+        bl: 'bg-[#84FF6B]/10',   // 左下
+        br: 'bg-[#510074]/10',   // 右下
+        
+        // 按钮：保留你的“初号机”高饱和配色
+        accent: 'bg-[#510074] hover:bg-[#3d0058] text-[#84FF6B] shadow-lg shadow-purple-900/20',
+        // 标签：非常淡的紫色背景
+        tagBg: 'bg-[#510074]/5 text-[#510074] border border-[#510074]/20'
       };
     }
 
-    // 3. 🟢 适老化/疗愈风格 (Elderly / Care / Green)
-    // 特征：强烈的翡翠绿辉光，充满生命力
-    if (tags.includes('elderly') || tags.includes('care') || tags.includes('green') || title.includes('老人') || title.includes('拾光')) {
+    // --- 🩸 风格 3: Horror/恐怖游戏 (Project 3 - 修正版：压抑血腥) ---
+    // 之前的 rose 太粉了，改为 red-900 (深红) + stone-800 (深灰)
+    if (pTheme === 'horror' || pTheme === 'game' || 
+        tags.includes('horror') || tags.includes('game') || title.includes('恐怖')) {
       return {
-        top: 'from-emerald-400 via-green-300/80 to-transparent',
-        bottom: 'from-teal-600 via-emerald-600/80 to-transparent',
-        left: 'from-emerald-400/80 via-transparent to-transparent',
-        right: 'from-teal-400/80 via-transparent to-transparent',
-        accent: 'bg-emerald-600 hover:bg-emerald-500 shadow-[0_0_30px_rgba(5,150,105,0.6)]',
-        tagBg: 'bg-emerald-100 text-emerald-900 border border-emerald-200'
+        // 💀 氛围：左上是血红色，右下是阴森的黑灰色
+        tl: 'bg-red-800/30',      // 左上：干涸的血迹感
+        tr: 'bg-stone-800/30',    // 右上：阴影/黑暗
+        bl: 'bg-red-600/20',      // 左下：新鲜血迹感
+        br: 'bg-stone-900/40',    // 右下：沉重的压迫感
+        
+        // 按钮：深红底色，像警告牌
+        accent: 'bg-red-950 hover:bg-red-900 text-red-50 shadow-lg shadow-red-900/20',
+        // 标签：带红色的灰底
+        tagBg: 'bg-stone-100 text-red-900 border border-red-200'
       };
     }
 
-    // 4. 🔵 默认/科技风格 (Tech / Default)
-    // 特征：激光蓝与赛博紫
+    // --- 🟢 风格 2: Elderly/适老疗愈 (Project 2 - 保持不动) ---
+    if (pTheme === 'elderly' || pTheme === 'care' || 
+        tags.includes('elderly') || tags.includes('care') || title.includes('老人')) {
+      return {
+        tl: 'bg-emerald-100/40',
+        tr: 'bg-teal-100/40',
+        bl: 'bg-green-50/60',
+        br: 'bg-emerald-200/30',
+        accent: 'bg-emerald-700 hover:bg-emerald-600 text-white',
+        tagBg: 'bg-emerald-50 text-emerald-800 border border-emerald-100'
+      };
+    }
+
+    // --- 🔵 默认/科技风格 ---
     return {
-      top: 'from-blue-600 via-indigo-500/80 to-transparent',
-      bottom: 'from-indigo-700 via-blue-800/80 to-transparent',
-      left: 'from-blue-500/80 via-transparent to-transparent',
-      right: 'from-indigo-500/80 via-transparent to-transparent',
-      accent: 'bg-blue-700 hover:bg-blue-600 shadow-[0_0_30px_rgba(29,78,216,0.6)]',
-      tagBg: 'bg-blue-50 text-blue-900 border border-blue-200'
+      tl: 'bg-blue-100/50',
+      tr: 'bg-indigo-100/40',
+      bl: 'bg-slate-100/60',
+      br: 'bg-blue-200/30',
+      accent: 'bg-slate-800 hover:bg-slate-700 text-white',
+      tagBg: 'bg-slate-50 text-slate-600 border border-slate-200'
     };
   };
 
@@ -133,32 +149,30 @@ function ProjectDetail() {
   };
 
   return (
-    // 外层容器：背景设为极淡的灰，增强光效对比
-    <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900 relative overflow-hidden">
+    // 外层容器：纯白底色，确保干净
+    <div className="min-h-screen flex flex-col bg-white text-gray-900 relative overflow-hidden">
       
-      {/* --- 🌟 强光环境层 (z-0) --- */}
-      {/* 关键修改：使用 mix-blend-screen 滤色模式，让光叠加更亮 */}
+      {/* --- 🌟 氛围层：模仿 COD 受伤的四周光晕 (Vignette) --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         
-        {/* 1. 顶部直射光墙 (Top Wall) - 强度拉满 */}
-        <div className={`absolute top-0 left-0 right-0 h-[50vh] bg-gradient-to-b ${theme.top} blur-[60px] opacity-100 mix-blend-screen`} />
+        {/* 左上角光晕 */}
+        <div className={`absolute -top-[20%] -left-[20%] w-[70vw] h-[70vw] rounded-full blur-[120px] mix-blend-multiply transition-colors duration-1000 ${theme.tl}`} />
         
-        {/* 2. 底部直射光墙 (Bottom Wall) */}
-        <div className={`absolute bottom-0 left-0 right-0 h-[50vh] bg-gradient-to-t ${theme.bottom} blur-[60px] opacity-100 mix-blend-screen`} />
+        {/* 右上角光晕 */}
+        <div className={`absolute -top-[20%] -right-[20%] w-[60vw] h-[60vw] rounded-full blur-[100px] mix-blend-multiply transition-colors duration-1000 ${theme.tr}`} />
         
-        {/* 3. 左侧侧溢光 (Left Spill) */}
-        <div className={`absolute top-0 bottom-0 left-0 w-[35vw] bg-gradient-to-r ${theme.left} blur-[80px] opacity-90 mix-blend-screen`} />
+        {/* 左下角光晕 */}
+        <div className={`absolute -bottom-[20%] -left-[20%] w-[60vw] h-[60vw] rounded-full blur-[100px] mix-blend-multiply transition-colors duration-1000 ${theme.bl}`} />
         
-        {/* 4. 右侧侧溢光 (Right Spill) */}
-        <div className={`absolute top-0 bottom-0 right-0 w-[35vw] bg-gradient-to-l ${theme.right} blur-[80px] opacity-90 mix-blend-screen`} />
+        {/* 右下角光晕 */}
+        <div className={`absolute -bottom-[20%] -right-[20%] w-[70vw] h-[70vw] rounded-full blur-[120px] mix-blend-multiply transition-colors duration-1000 ${theme.br}`} />
 
-        {/* 5. 中心通透层 (让中间的内容区保持干净，但带有环境色偏) */}
-        <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px]" />
+        {/* 整体噪点纹理 (增加一点质感，不让颜色看起来太“平”) */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
       </div>
 
       {/* --- 导航栏 (z-50) --- */}
-      {/* 🔴 关键修复：z-50 确保 Navbar 里的“Portfolio”按钮浮在所有光效之上，绝对可点 */}
-      <div className="relative z-50 shadow-sm">
+      <div className="relative z-50">
         <Navbar />
       </div>
 
@@ -172,7 +186,7 @@ function ProjectDetail() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Link to="/" className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors mb-8 group bg-white/50 px-4 py-2 rounded-full backdrop-blur-md border border-white/50 shadow-sm">
+            <Link to="/" className="inline-flex items-center text-gray-500 hover:text-gray-900 transition-colors mb-8 group bg-white/40 px-4 py-2 rounded-full border border-white/60 shadow-sm backdrop-blur-sm hover:bg-white/60">
               <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
               返回作品集
             </Link>
@@ -187,12 +201,15 @@ function ProjectDetail() {
           >
             <div className="flex flex-wrap gap-2 mb-4">
               {(project.tags || []).map((tag, index) => (
-                <span key={index} className={`text-sm px-3 py-1 rounded-full font-mono backdrop-blur-md shadow-sm ${theme.tagBg}`}>
+                <span key={index} className={`text-sm px-3 py-1 rounded-full font-mono backdrop-blur-sm ${theme.tagBg}`}>
                   {tag}
                 </span>
               ))}
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 italic drop-shadow-sm">{project.title}</h1>
+            {/* 标题加了点混合模式，让它更好地融入背景 */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 italic text-gray-900 drop-shadow-sm">
+                {project.title}
+            </h1>
           </motion.div>
 
           {/* 项目描述 */}
@@ -202,7 +219,8 @@ function ProjectDetail() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mb-12"
           >
-            <p className="text-base md:text-lg text-gray-800 leading-relaxed whitespace-pre-line border-l-4 border-white/50 pl-6 bg-white/30 p-4 rounded-r-xl backdrop-blur-sm">
+            {/* 描述框改为更加通透的毛玻璃 */}
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line border-l-4 border-gray-200 pl-6 py-2">
               {project.description}
             </p>
           </motion.div>
@@ -212,10 +230,9 @@ function ProjectDetail() {
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex gap-4 mb-10 border-b border-gray-200/50 pb-6 sticky top-20 z-20 pt-4"
+              className="flex gap-4 mb-10 border-b border-gray-100 pb-6 sticky top-20 z-20 pt-4"
             >
-              {/* 背景条单独处理，防止遮挡 */}
-              <div className="absolute inset-0 bg-white/80 backdrop-blur-xl -z-10 rounded-xl shadow-sm" />
+              <div className="absolute inset-0 bg-white/70 backdrop-blur-xl -z-10 rounded-xl shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]" />
               
               {categories.map((cat) => (
                 <button
@@ -223,8 +240,8 @@ function ProjectDetail() {
                   onClick={() => setActiveTab(cat)}
                   className={`relative px-6 py-2 rounded-full text-sm transition-all duration-300 font-medium ${
                     activeTab === cat 
-                      ? `${theme.accent} text-white shadow-lg scale-105` 
-                      : 'bg-white text-gray-500 hover:bg-gray-100 border border-gray-100'
+                      ? `${theme.accent} shadow-lg scale-105` 
+                      : 'bg-white/50 text-gray-500 hover:bg-gray-100 border border-transparent hover:border-gray-200'
                   }`}
                 >
                   {cat}
@@ -249,7 +266,8 @@ function ProjectDetail() {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     className="flex flex-col gap-4"
                   >
-                    <div className="overflow-hidden rounded-xl shadow-2xl shadow-gray-400/20 border border-white/60 bg-white">
+                    {/* 图片容器：加了一个很干净的白色底座 */}
+                    <div className="overflow-hidden rounded-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white bg-white ring-1 ring-gray-100">
                       <ImageComponent
                         src={imageUrl}
                         alt={`${project.title} - ${index}`}
@@ -259,8 +277,8 @@ function ProjectDetail() {
                     </div>
                     {caption && (
                       <div className="flex items-start gap-3 px-2">
-                        <span className="text-xs font-mono text-gray-500 mt-1">[{String(index + 1).padStart(2, '0')}]</span>
-                        <p className="text-sm text-gray-600 font-medium leading-relaxed">{caption}</p>
+                        <span className="text-xs font-mono text-gray-400 mt-1">[{String(index + 1).padStart(2, '0')}]</span>
+                        <p className="text-sm text-gray-500 font-medium leading-relaxed">{caption}</p>
                       </div>
                     )}
                   </motion.div>
@@ -276,24 +294,21 @@ function ProjectDetail() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-20 pt-20 border-t border-gray-200/50 flex flex-col items-center relative"
+              className="mt-20 pt-20 border-t border-gray-100 flex flex-col items-center relative"
             >
-              {/* 原型区背景光晕增强 */}
-              <div className={`absolute inset-0 bg-gradient-to-t ${theme.bottom} opacity-30 blur-3xl -z-10`} />
-
               <div className="mb-10 text-center relative z-10">
-                <h3 className="text-2xl font-light italic mb-2 flex items-center justify-center gap-2">
+                <h3 className="text-2xl font-light italic mb-2 flex items-center justify-center gap-2 text-gray-800">
                   <Smartphone className="w-6 h-6" /> 
                   可交互原型演示
                 </h3>
                 <p className="text-gray-900 font-bold mt-2">
                     当前预览: {activeTab === 'all' ? '默认版本' : activeTab}
                 </p>
-                <p className="text-gray-500 text-sm font-mono uppercase tracking-widest mt-1">Interactive Prototype</p>
+                <p className="text-gray-400 text-sm font-mono uppercase tracking-widest mt-1">Interactive Prototype</p>
               </div>
 
-              {/* 手机外壳容器 */}
-              <div className="relative w-full max-w-[375px] aspect-[9/19] bg-black rounded-[3rem] border-[12px] border-gray-900 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden z-10">
+              {/* 手机外壳 */}
+              <div className="relative w-full max-w-[375px] aspect-[9/19] bg-black rounded-[3rem] border-[12px] border-gray-900 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] overflow-hidden z-10">
                 <iframe 
                   className="w-full h-full border-none bg-black"
                   src={figmaEmbedUrl}
@@ -301,12 +316,12 @@ function ProjectDetail() {
                 ></iframe>
               </div>
 
-              {/* 全屏体验按钮 */}
+              {/* 全屏按钮 */}
               <button 
                 onClick={openFullScreen}
-                className={`mt-8 flex items-center gap-2 px-8 py-4 ${theme.accent} text-white rounded-full transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 font-bold tracking-wide relative z-10`}
+                className={`mt-8 flex items-center gap-2 px-8 py-3 ${theme.accent} rounded-full transition-all shadow-md hover:shadow-xl hover:-translate-y-1 font-medium tracking-wide relative z-10`}
               >
-                <Maximize2 className="w-5 h-5" />
+                <Maximize2 className="w-4 h-4" />
                 在独立窗口中全屏体验
               </button>
             </motion.div>
