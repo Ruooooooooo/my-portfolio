@@ -26,68 +26,58 @@ function ProjectDetail() {
     return null
   }
 
-  // --- 🎨 核心修改：智能主题配色系统 (包含新增的绿色适老主题) ---
+  // --- 🎨 核心修改：四周向内强光主题系统 ---
   const getThemeColors = () => {
     const tags = (project.tags || []).join(' ').toLowerCase();
     const title = (project.title || '').toLowerCase();
-    
+
     // 1. 🔴 恐怖/游戏风格 (Horror / Game)
-    // 适用：恐怖游戏 demo
     if (tags.includes('horror') || tags.includes('game') || title.includes('恐怖')) {
       return {
-        tl: 'from-red-900/20 via-purple-900/10 to-transparent', // 左上冷艳
-        br: 'from-gray-800/20 via-red-950/10 to-transparent',   // 右下压抑
-        tr: 'from-gray-900/10 via-blue-900/5 to-transparent',   // 点缀
-        accent: 'bg-red-900 hover:bg-red-800',                  // 按钮色
-        tagBg: 'bg-red-50/80 text-red-900'                      // 标签色
+        // 四周光晕颜色：使用高饱和度的红色/紫色，配合混合模式制造压迫感
+        glow: 'from-red-600/40 via-purple-900/20 to-transparent',
+        accent: 'bg-red-900 hover:bg-red-800',
+        tagBg: 'bg-red-50/80 text-red-900'
       };
     }
-    
+
     // 2. 🟠 工业/硬朗风格 (Industrial / Compiler)
-    // 适用：编译器界面、硬核工具
     if (tags.includes('industrial') || tags.includes('hard') || title.includes('编译')) {
       return {
-        tl: 'from-orange-200/50 via-amber-100/30 to-transparent', // 警示橙
-        br: 'from-slate-300/50 via-gray-200/30 to-transparent',    // 金属灰
-        tr: 'from-zinc-200 via-gray-100/20 to-transparent',
+        // 四周光晕颜色：强烈的橙色警示光
+        glow: 'from-orange-500/40 via-amber-500/20 to-transparent',
         accent: 'bg-orange-600 hover:bg-orange-700',
         tagBg: 'bg-orange-50/80 text-orange-800'
       };
     }
 
     // 3. 🟢 适老化/疗愈风格 (Elderly / Care / Green)
-    // 适用：拾光 (Memory Anchor) 老人APP
     if (tags.includes('elderly') || tags.includes('care') || tags.includes('green') || title.includes('老人') || title.includes('拾光')) {
       return {
-        // 左上：鼠尾草绿/翡翠绿 (生命力与平静)
-        tl: 'from-emerald-100/60 via-green-100/40 to-transparent',
-        // 右下：暖米色/石灰绿 (纸张纹理感，稳重)
-        br: 'from-stone-100/60 via-lime-50/40 to-transparent',
-        // 右上：清晨柔光
-        tr: 'from-teal-50/40 via-yellow-50/20 to-transparent',
-        // 按钮：深翡翠绿 (高对比度，安全感)
+        // 四周光晕颜色：柔和的翡翠绿，像晨光
+        glow: 'from-emerald-400/30 via-teal-300/10 to-transparent',
         accent: 'bg-emerald-700 hover:bg-emerald-800',
         tagBg: 'bg-emerald-50/80 text-emerald-800'
       };
     }
 
     // 4. 🔵 默认/科技风格 (Tech / Default)
-    // 适用：打卡APP，通用项目
     return {
-      tl: 'from-blue-100/60 via-purple-100/40 to-transparent',
-      br: 'from-indigo-100/60 via-teal-100/40 to-transparent',
-      tr: 'from-gray-100 via-pink-50/30 to-transparent',
+      // 四周光晕颜色：科技蓝光
+      glow: 'from-blue-500/30 via-indigo-400/10 to-transparent',
       accent: 'bg-gray-900 hover:bg-gray-800',
       tagBg: 'bg-gray-50/80 text-gray-500'
     };
   };
 
   const theme = getThemeColors();
+
   // -----------------------------------------------------------
 
   const categories = project.images 
     ? [...new Set(project.images.map(img => img.category).filter(Boolean))]
     : [];
+  
   const showTabs = categories.length > 1;
 
   const filteredImages = project.images.filter(item => {
@@ -126,23 +116,30 @@ function ProjectDetail() {
   };
 
   return (
-    // 外层容器：相对定位 + 隐藏溢出 (防止光晕撑开滚动条)
+    // 外层容器
     <div className="min-h-screen flex flex-col bg-white text-gray-900 relative overflow-hidden">
       
       {/* --- 背景环境光层 (底层 z-0) --- */}
-      <div className="fixed inset-0 z-0 pointer-events-none transition-colors duration-1000 ease-in-out">
-        {/* 左上角主光源 */}
-        <div className={`absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br ${theme.tl} blur-[100px] opacity-70`} />
+      {/* 修改：改为四周向内投射的强光，并使用 mix-blend-screen 增强光感 */}
+      <div className="fixed inset-0 z-0 pointer-events-none bg-gray-50/50">
         
-        {/* 右下角辅助光源 */}
-        <div className={`absolute -bottom-[10%] -right-[10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-tl ${theme.br} blur-[100px] opacity-70`} />
+        {/* 顶部向下投射的光 */}
+        <div className={`absolute top-0 left-0 right-0 h-[40vh] bg-gradient-to-b ${theme.glow} mix-blend-screen opacity-80 transition-colors duration-1000`} />
         
-        {/* 右上角高光点缀 */}
-        <div className={`absolute top-[10%] right-[-5%] w-[30vw] h-[30vw] rounded-full bg-gradient-to-bl ${theme.tr} blur-[80px] opacity-50`} />
+        {/* 底部向上投射的光 */}
+        <div className={`absolute bottom-0 left-0 right-0 h-[40vh] bg-gradient-to-t ${theme.glow} mix-blend-screen opacity-80 transition-colors duration-1000`} />
+        
+        {/* 左侧向右投射的光 */}
+        <div className={`absolute top-0 bottom-0 left-0 w-[30vw] bg-gradient-to-r ${theme.glow} mix-blend-screen opacity-60 transition-colors duration-1000`} />
+        
+        {/* 右侧向左投射的光 */}
+        <div className={`absolute top-0 bottom-0 right-0 w-[30vw] bg-gradient-to-l ${theme.glow} mix-blend-screen opacity-60 transition-colors duration-1000`} />
+        
       </div>
 
-      {/* --- 导航栏 (z-10) --- */}
-      <div className="relative z-10">
+      {/* --- 导航栏 (z-50) --- */}
+      {/* 修改：层级提升到 z-50，确保“回到首页”一定可以点击 */}
+      <div className="relative z-50">
         <Navbar />
       </div>
 
@@ -220,6 +217,7 @@ function ProjectDetail() {
               {filteredImages.map((item, index) => {
                 const imageUrl = typeof item === 'string' ? item : item.url;
                 const caption = typeof item === 'string' ? null : item.caption;
+
                 return (
                   <motion.div
                     key={`${activeTab}-${index}`}
@@ -287,7 +285,6 @@ function ProjectDetail() {
                 <Maximize2 className="w-4 h-4" />
                 在独立窗口中全屏体验
               </button>
-
               <p className="text-center text-xs text-gray-400 mt-4 font-mono">
                  * 切换上方 Tab 按钮，此处的演示版本也会同步切换
               </p>
@@ -301,6 +298,7 @@ function ProjectDetail() {
       <div className="relative z-10">
         <Footer />
       </div>
+
     </div>
   )
 }
