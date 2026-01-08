@@ -152,6 +152,34 @@ function ProjectDetail() {
               })}
             </AnimatePresence>
           </div>
+
+          {/* ✨ 新增：Figma 交互原型演示区 (自动检测是否有链接) */}
+          {project.figmaUrl && (
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-20 pt-20 border-t border-gray-100"
+            >
+              <div className="mb-10 text-center">
+                <h3 className="text-2xl font-light italic mb-2">可交互原型演示</h3>
+                <p className="text-gray-400 text-sm font-mono uppercase tracking-widest">Interactive Prototype</p>
+              </div>
+
+              {/* 模拟手机外壳容器 */}
+              <div className="relative mx-auto w-full max-w-[375px] aspect-[9/19] bg-black rounded-[3rem] border-[12px] border-gray-900 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] overflow-hidden">
+                <iframe 
+                  className="w-full h-full border-none"
+                  src={`https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(project.figmaUrl)}`} 
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <p className="text-center text-xs text-gray-400 mt-8 font-mono">
+                * 提示：可以在上方手机模型中直接点击体验完整跳转逻辑
+              </p>
+            </motion.div>
+          )}
+
         </div>
       </main>
       <Footer />

@@ -3,27 +3,28 @@
     "id": "check-in-app",
     "title": "Daily Flow - 习惯养成与风格探索",
     "coverImage": "/images/project-01/cover.png",
-    "description": "最初我想做一个简单的打卡App,为了求稳,随大流做了现在最常见的极简黑白风(V1)。做完虽然干净，但我自己都觉得无聊，用起来冷冰冰的。我不想它只是个没感情的工具。所以我把它推翻重来(V2)，换成了我现在很迷恋的工业/赛博风格。我加重了光影对比，甚至做了一些故障效果，就是为了让用户在点下'打卡'按钮的那一瞬间，能有一种游戏通关的爽感和仪式感。",
+    "description": "最初我想做一个简单的打卡App,为了求稳,随大流做了现在最常见的极简黑白风(V1)。做完虽然干净，但我自己都觉得无聊，用起来冷冰冰的。\n\n既然是我的作品，我不想它只是个没感情的工具。所以我把它推翻重来(V2)，换成了我现在很迷恋的工业/赛博风格。我加重了光影对比，甚至做了一些故障效果，就是为了让用户在点下'打卡'按钮的那一瞬间，能有一种游戏通关的爽感和仪式感。",
     "tags": ["UI/UX Design", "Visual Identity", "React"],
+    "figmaUrl": "https://embed.figma.com/design/BpPnq5R5prd8CnB3kekwO6/Untitled?node-id=140-595&embed-host=share",
     "images": [
       {
         "url": "/images/project-01/v2-login-screen.png",
-        "caption": "启动页：直接放一个大大的'律'字镇场子。就是想用这种严肃、硬核的排版告诉自己：别嬉皮笑脸的，该开始自律了。",
+        "caption": "V2 启动页：直接放一个大大的'律'字镇场子。就是想用这种严肃、硬核的排版告诉自己：别嬉皮笑脸的，该开始自律了。",
         "category": "⚙️ 工业风格 (最终版)"
       },
       {
         "url": "/images/project-01/v2-homepage.png",
-        "caption": "主页设计：把功能区做成了像仪表盘一样的卡片。深色背景配上这些硬朗的线条，感觉不像是在打卡，像是在操作一台精密仪器，仪式感拉满。",
+        "caption": "V2 主页设计：把功能区做成了像仪表盘一样的卡片。深色背景配上这些硬朗的线条，感觉不像是在打卡，像是在操作一台精密仪器，仪式感拉满。",
         "category": "⚙️ 工业风格 (最终版)"
       },
       {
         "url": "/images/project-01/v2-before-checking-in.png",
-        "caption": "待机状态：为了让你有想去按它的冲动，我把按钮的光影做得特别立体，悬浮在屏幕上，好像在说：'快点我，就差这一步了'。",
+        "caption": "V2 待机状态：为了让你有想去按它的冲动，我把按钮的光影做得特别立体，悬浮在屏幕上，好像在说：'快点我，就差这一步了'。",
         "category": "⚙️ 工业风格 (最终版)"
       },
       {
         "url": "/images/project-01/v2-after-checking-in.png",
-        "caption": "完成反馈：按下按钮的那一刻，做了一个像游戏通关一样的'故障风'跳动效果。打卡嘛，要的就是这一下'爽'的感觉。",
+        "caption": "V2 完成反馈：按下按钮的那一刻，做了一个像游戏通关一样的'故障风'跳动效果。打卡嘛，要的就是这一下'爽'的感觉。",
         "category": "⚙️ 工业风格 (最终版)"
       },
       {
@@ -43,7 +44,7 @@
       },
       {
         "url": "/images/project-01/v1-after-checking-in.png",
-        "caption": "V1 反馈;打卡成功的提示。很常规的处理方式,虽然不出错,但作为一款要激励用户的App,这个反馈给人的成就感有点弱。",
+        "caption": "V1 反馈：打卡成功的提示。很常规的处理方式,虽然不出错,但作为一款要激励用户的App,这个反馈给人的成就感有点弱。",
         "category": "⚪ 极简风格 (初稿)"
       }
     ]
@@ -129,25 +130,25 @@
   },
   {
     "id": "p4-echo-editor",
-      "title": "Project: ECHO (剧情逻辑编辑器)",
-      "subtitle": "UI Design / 游戏工具 / 赛博工业风",
-      "coverImage": "/images/project-04/cover.png",
-      "tags": ["UI/UX", "Game Tool", "Cyberpunk", "Dark UI"],
-      "tech": ["Figma", "Unity", "Design System"],
-      "date": "2026-01",
-      "description": "为了拯救策划发际线而做的暗黑风编辑器。把枯燥的Excel脚本变成可视化的节点连线,写剧情逻辑就像在玩赛博连连看。",
-      "links": {
-        "live": "#",
-        "github": "#"
-      },
+    "title": "Project: ECHO (剧情逻辑编辑器)",
+    "subtitle": "UI Design / 游戏工具 / 赛博工业风",
+    "coverImage": "/images/project-04/cover.png",
+    "tags": ["UI/UX", "Game Tool", "Cyberpunk", "Dark UI"],
+    "tech": ["Figma", "Unity", "Design System"],
+    "date": "2026-01",
+    "description": "为了拯救策划发际线而做的暗黑风编辑器。把枯燥的Excel脚本变成可视化的节点连线,写剧情逻辑就像在玩赛博连连看。",
+    "links": {
+      "live": "#",
+      "github": "#"
+    },
     "images": [
       {
-      "url": "/images/project-04/page-1.png",
-      "caption": "ECHO编辑器首页;拯救Excel策划的暗黑风逻辑连线工具,写剧情就像玩连连看"
+        "url": "/images/project-04/page-1.png",
+        "caption": "ECHO编辑器首页;拯救Excel策划的暗黑风逻辑连线工具,写剧情就像玩连连看"
       },
       {
-      "url": "/images/project-04/page2.png",
-      "caption": "分屏视图;左边点3D机关,右边逻辑节点自动高亮,所见即所得,专治逻辑找不到"
+        "url": "/images/project-04/page2.png",
+        "caption": "分屏视图;左边点3D机关,右边逻辑节点自动高亮,所见即所得,专治逻辑找不到"
       },
       {
         "url": "/images/project-04/page-3.png",
