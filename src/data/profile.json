@@ -1,12 +1,10 @@
 {
   "name": "若见花",
-  "role": "交互设计师 / UI Designer",
+  "role": "学生 / Digital Creator",
   "avatar": "/images/avatar.jpg", 
-  "bio": "环境设计背景，正在探索数字空间的无限可能。热衷于在 Unreal Engine 5 中构建沉浸式叙事体验，同时专注于高精度的 UI/UX 界面交互设计。",
+  "bio": "环境设计背景，正在自学探索交互设计与游戏开发。目前处于学生阶段，暂无商业项目经验。这里主要归档我在 UE5 与 UI/UX 设计上的个人练习。",
   "socialLinks": {
-    "email": "c69505732@gmail.com",
-    "github": "https://github.com/Ruoooooooo",
-    "linkedin": "https://linkedin.com",
-    "behance": "https://behance.net"
+    "email": "522428524@qq.com",
+    "github": "https://github.com/Ruoooooooo"
   }
 }
