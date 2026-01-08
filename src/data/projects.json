@@ -8,32 +8,42 @@
     "images": [
       {
         "url": "/images/project-01/v2-login-screen.png",
-        "caption": "V2 登录界面：赛博工业风的视觉冲击，打破常规工具的冰冷感",
-        "category": "⚡ 工业风格 (最终版)"
+        "caption": "启动页：直接放一个大大的'律'字镇场子。就是想用这种严肃、硬核的排版告诉自己：别嬉皮笑脸的，该开始自律了。",
+        "category": "⚙️ 工业风格 (最终版)"
+      },
+      {
+        "url": "/images/project-01/v2-homepage.png",
+        "caption": "主页设计：把功能区做成了像仪表盘一样的卡片。深色背景配上这些硬朗的线条，感觉不像是在打卡，像是在操作一台精密仪器，仪式感拉满。",
+        "category": "⚙️ 工业风格 (最终版)"
       },
       {
         "url": "/images/project-01/v2-before-checking-in.png",
-        "caption": "V2 待机状态：高对比度的光影，营造“任务待执行”的紧张氛围",
-        "category": "⚡ 工业风格 (最终版)"
+        "caption": "待机状态：为了让你有想去按它的冲动，我把按钮的光影做得特别立体，悬浮在屏幕上，好像在说：'快点我，就差这一步了'。",
+        "category": "⚙️ 工业风格 (最终版)"
       },
       {
         "url": "/images/project-01/v2-after-checking-in.png",
-        "caption": "V2 完成状态：打卡瞬间的高亮反馈，提供充足的成就感",
-        "category": "⚡ 工业风格 (最终版)"
+        "caption": "完成反馈：按下按钮的那一刻，做了一个像游戏通关一样的'故障风'跳动效果。打卡嘛，要的就是这一下'爽'的感觉。",
+        "category": "⚙️ 工业风格 (最终版)"
       },
       {
         "url": "/images/project-01/v1-login-screen.png",
-        "caption": "V1 登录界面：早期尝试的极简风格，虽然清晰但缺乏个性",
+        "caption": "V1 登录页：这是最早的一版，就是简简单单的白底黑字。虽然看着很干净，挑不出错，但总觉得太'乖'了，少了点让人兴奋的性格。",
+        "category": "⚪ 极简风格 (初稿)"
+      },
+      {
+        "url": "/images/project-01/v1-homepage.png",
+        "caption": "V1 主页：当时尝试了很流行的'新拟态'风格，软绵绵的投影。好看是好看，但看久了有点视觉疲劳，而且不够酷。",
         "category": "⚪ 极简风格 (初稿)"
       },
       {
         "url": "/images/project-01/v1-before-checking-in.png",
-        "caption": "V1 待机状态：传统的卡片式布局",
+        "caption": "V1 待机：那个时候的按钮设计得很克制，几乎和背景融为一体。现在回头看，这种设计太冷静了，不够抓人眼球。",
         "category": "⚪ 极简风格 (初稿)"
       },
       {
         "url": "/images/project-01/v1-after-checking-in.png",
-        "caption": "V1 完成状态：简单的反馈，情绪价值较弱",
+        "caption": "V1 反馈;打卡成功的提示。很常规的处理方式,虽然不出错,但作为一款要激励用户的App,这个反馈给人的成就感有点弱。",
         "category": "⚪ 极简风格 (初稿)"
       }
     ]
