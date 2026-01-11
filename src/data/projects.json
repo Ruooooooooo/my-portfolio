@@ -60,20 +60,53 @@
     ]
   },
   {
-    "id": "p2-grad-extension",
-    "title": "DailyFlow Pro - 毕业设计延伸探索",
+    "id": "family-link-app",
+    "title": "FamilyLink - 适老化家庭健康守护终端",
     "subtitle": "系统深化 / 数据可视化 / 情感化交互",
-    "coverImage": "/images/project-02/cover.jpg",
+    "coverImage": "/images/project-02/cover.png",
     "tags": ["UX Research", "System Design", "Data Visualization"],
     "tech": ["UX Research", "System Design", "Data Visualization"],
-    "date": "2025-01",
+    "date": "2026-01",
     "theme": "elderly",
-    "description": "基于 DailyFlow 基础版本的深度迭代。此阶段引入了更复杂的成就系统、社交激励机制以及个人数据可视化看板。",
+    "description": "这个项目的起点源于我自己的真实焦虑。作为一个离家在外的毕业生，我无法时刻陪在父母身边，最大的担忧就是'看不见'他们的生活。市面上的老人手环虽然多，但大多像冷冰冰的监控器，或者操作复杂得让老人产生科技畏惧感。\n\n最初我尝试了很硬核的工业风，但很快发现那对老人来说是种'负担'。于是我推翻重来，基于菲茨定律(Fitts's Law)重构了交互逻辑，把按钮做成了温润的鹅卵石，配色也从'科技蓝'换成了更有温度的'苔藓绿'与'米色'。对我来说,FamilyLink 不仅仅是一个监测心率的工具，它是客厅里那个能让爸妈随时看到孩子照片的电子相框，也是危急时刻能救命的一根红线。",
     "links": {
       "live": "#",
       "github": "#"
     },
-    "images": []
+    "images": [
+      {
+        "url": "/images/project-02/slide-01-cover.png",
+        "caption": "PROJECT COVER: FamilyLink 全景展示。这是项目的核心概览，展示了以 iPad（家庭中枢）、iPhone（子女端）和 Watch（老人端）构成的'三位一体'适老化守护系统。"
+      },
+      {
+        "url": "/images/project-02/slide-02-background.png",
+        "caption": "BACKGROUND: 项目背景与痛点洞察。面对 1.2 亿空巢老人的现状，我并不想做一个单纯的监控工具，而是试图解决'认知负荷过重'与'黄金救援缺失'这两大核心痛点。"
+      },
+      {
+        "url": "/images/project-02/slide-03-user-journey.png",
+        "caption": "USER RESEARCH: 用户画像与体验地图。这是 72 岁独居老人李建国的一天。通过情绪曲线，展示了产品如何介入'意外跌倒'场景，将一次惊险的危机转化为家人互动的温情时刻。"
+      },
+      {
+        "url": "/images/project-02/slide-04-iteration.png",
+        "caption": "DESIGN ITERATION: 交互推导与重构。这是最关键的一次改稿——为了适应老人颤抖的手指，我放弃了炫酷的蜂窝菜单，基于菲茨定律(Fitts's Law)设计了超大触控热区的'鹅卵石'按钮。"
+      },
+      {
+    "url": "/images/project-02/slide-05-daily-guard.png",
+    "caption": "DAILY GUARD: 日常守护界面。在平静的日子里，数据应该是'隐形'的。子女端通过可视化的健康周报，一眼就能确认父母的睡眠与心率趋势，主打'不打扰'的陪伴。"
+      },
+      {
+    "url": "/images/project-02/slide-06-crisis.png",
+    "caption": "CRISIS RESPONSE: 危机响应模式。当跌倒发生时，UI 会瞬间切换为黑红配色的'生存模式'。去除所有装饰，只保留巨大的求救按钮，确保在慌乱中也能盲操作。"
+      },
+      {
+    "url": "/images/project-02/slide-07-emotion.png",
+    "caption": "EMOTIONAL CONNECTION: 情感连接设计。不仅仅是通话，更是'看见'。iPad 端特别设计了实时字幕功能与 AR 识人，跨越了听力障碍，让亲情沟通不再有隔阂。"
+      },
+      {
+    "url": "/images/project-02/slide-08-overview.png",
+    "caption": "DESIGN OVERVIEW: 设计系统全览。汇总了涵盖 Watch/Phone/Pad 三端的所有核心界面，以及支撑起整个产品的 Design System —— 包括温暖的米色基调和严谨的无障碍字体系统。"
+      }
+    ] 
   },
   {
     "id": "p3-unity-corridor",
