@@ -1,183 +1,254 @@
 [
   {
-    "id": "check-in-app",
-    "title": "Daily Flow - 习惯养成与风格探索",
+    "id": "p1-strata-data-vis",
+    "title": "层积 - 情绪可视化的数字地质实验",
+    "subtitle": "数据可视化 / 交互仪式感 / 隐喻设计",
     "coverImage": "/images/project-01/cover.png",
-    "description": "最初我想做一个简单的打卡App,为了求稳,随大流做了现在最常见的极简黑白风(V1)。做完虽然干净，但我自己都觉得无聊，用起来冷冰冰的。\n\n既然是我的作品，我不想它只是个没感情的工具。所以我把它推翻重来(V2)，换成了我现在很迷恋的工业/赛博风格。我加重了光影对比，甚至做了一些故障效果，就是为了让用户在点下'打卡'按钮的那一瞬间，能有一种游戏通关的爽感和仪式感。",
-    "tags": ["UI/UX Design", "Visual Identity", "React"],
-    "theme": "minimal",
-   "prototypes": [
-    {
-      "url": "https://www.figma.com/proto/BpPnq5R5prd8CnB3kekwO6/Untitled?page-id=1%3A2&node-id=108-585&viewport=1142%2C296%2C0.14&t=CiHnabvYvKlto7om-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=108%3A826&show-proto-sidebar=1",
-      "category": "⚙️ 工业风格 (最终版)"
-    },
-    {
-      "url": "https://www.figma.com/proto/BpPnq5R5prd8CnB3kekwO6/Untitled?page-id=1%3A2&node-id=13-106&viewport=1142%2C296%2C0.14&t=CiHnabvYvKlto7om-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=27%3A546&show-proto-sidebar=1",
-      "category": "⚪ 极简风格 (初稿)"
-    }
-  ],
-    "images": [
-      {
-        "url": "/images/project-01/v2-login-screen.png",
-        "caption": "V2 启动页：直接放一个大大的'律'字镇场子。就是想用这种严肃、硬核的排版告诉自己：别嬉皮笑脸的，该开始自律了。",
-        "category": "⚙️ 工业风格 (最终版)"
-      },
-      {
-        "url": "/images/project-01/v2-homepage.png",
-        "caption": "V2 主页设计：把功能区做成了像仪表盘一样的卡片。深色背景配上这些硬朗的线条，感觉不像是在打卡，像是在操作一台精密仪器，仪式感拉满。",
-        "category": "⚙️ 工业风格 (最终版)"
-      },
-      {
-        "url": "/images/project-01/v2-before-checking-in.png",
-        "caption": "V2 待机状态：为了让你有想去按它的冲动，我把按钮的光影做得特别立体，悬浮在屏幕上，好像在说：'快点我，就差这一步了'。",
-        "category": "⚙️ 工业风格 (最终版)"
-      },
-      {
-        "url": "/images/project-01/v2-after-checking-in.png",
-        "caption": "V2 完成反馈：按下按钮的那一刻，做了一个像游戏通关一样的'故障风'跳动效果。打卡嘛，要的就是这一下'爽'的感觉。",
-        "category": "⚙️ 工业风格 (最终版)"
-      },
-      {
-        "url": "/images/project-01/v1-login-screen.png",
-        "caption": "V1 登录页：这是最早的一版，就是简简单单的白底黑字。虽然看着很干净，挑不出错，但总觉得太'乖'了，少了点让人兴奋的性格。",
-        "category": "⚪ 极简风格 (初稿)"
-      },
-      {
-        "url": "/images/project-01/v1-homepage.png",
-        "caption": "V1 主页：当时尝试了很流行的'新拟态'风格，软绵绵的投影。好看是好看，但看久了有点视觉疲劳，而且不够酷。",
-        "category": "⚪ 极简风格 (初稿)"
-      },
-      {
-        "url": "/images/project-01/v1-before-checking-in.png",
-        "caption": "V1 待机：那个时候的按钮设计得很克制，几乎和背景融为一体。现在回头看，这种设计太冷静了，不够抓人眼球。",
-        "category": "⚪ 极简风格 (初稿)"
-      },
-      {
-        "url": "/images/project-01/v1-after-checking-in.png",
-        "caption": "V1 反馈：打卡成功的提示。很常规的处理方式,虽然不出错,但作为一款要激励用户的App,这个反馈给人的成就感有点弱。",
-        "category": "⚪ 极简风格 (初稿)"
-      }
-    ]
-  },
-  {
-    "id": "family-link-app",
-    "title": "FamilyLink - 适老化家庭健康守护终端",
-    "subtitle": "系统深化 / 数据可视化 / 情感化交互",
-    "coverImage": "/images/project-02/cover.png",
-    "tags": ["UX Research", "System Design", "Data Visualization"],
-    "tech": ["UX Research", "System Design", "Data Visualization"],
-    "date": "2026-01",
-    "theme": "elderly",
-    "description": "这个项目的起点源于我自己的真实焦虑。作为一个离家在外的毕业生，我无法时刻陪在父母身边，最大的担忧就是'看不见'他们的生活。市面上的老人手环虽然多，但大多像冷冰冰的监控器，或者操作复杂得让老人产生科技畏惧感。\n\n最初我尝试了很硬核的工业风，但很快发现那对老人来说是种'负担'。于是我推翻重来，基于菲茨定律(Fitts's Law)重构了交互逻辑，把按钮做成了温润的鹅卵石，配色也从'科技蓝'换成了更有温度的'苔藓绿'与'米色'。对我来说,FamilyLink 不仅仅是一个监测心率的工具，它是客厅里那个能让爸妈随时看到孩子照片的电子相框，也是危急时刻能救命的一根红线。",
+    "tags": ["Data Visualization", "UI/UX", "Interactive Metaphor"],
+    "date": "2026",
+    "theme": "geology",
+    "description": "对抗轻量化的信息流，用空间沉积重塑个人史的厚度。在无尽的瀑布流中，文字失去了物理附着力，沦为不断向上挥发、被遗忘的数据碎片。这个项目旨在打破现有的 UI 框架，把大自然中“看得见、摸得着”的物理属性（重力、时间、风化），移植到个人的习惯记录中去。你敲下的每一个字都是在往下垫一块有重量的“砖”，字数决定土层的厚度。当按下“深埋”键，数据瞬间实体化成一块土层，结结实实地砸在屏幕最底端，让情绪和记忆拥有看得见的“体积”。",
     "links": {
       "live": "#",
       "github": "#"
     },
     "images": [
       {
-        "url": "/images/project-02/slide-01-cover.png",
-        "caption": "PROJECT COVER: FamilyLink 全景展示。这是项目的核心概览，展示了以 iPad（家庭中枢）、iPhone（子女端）和 Watch（老人端）构成的'三位一体'适老化守护系统。"
+        "url": "/images/project-01/page-1.png",
+        "caption": "失重的记录：传统信息流让文字失去物理附着力。这里引入“数据物质化”，字数的绝对值决定了地层的物理厚度。"
       },
       {
-        "url": "/images/project-02/slide-02-background.png",
-        "caption": "BACKGROUND: 项目背景与痛点洞察。面对 1.2 亿空巢老人的现状，我并不想做一个单纯的监控工具，而是试图解决'认知负荷过重'与'黄金救援缺失'这两大核心痛点。"
+        "url": "/images/project-01/page-2.png",
+        "caption": "向自然借一点重量：提取地质化石包裹感与水平沉降纹理，把大自然的物理属性移植到习惯记录中。"
       },
       {
-        "url": "/images/project-02/slide-03-user-journey.png",
-        "caption": "USER RESEARCH: 用户画像与体验地图。这是 72 岁独居老人李建国的一天。通过情绪曲线，展示了产品如何介入'意外跌倒'场景，将一次惊险的危机转化为家人互动的温情时刻。"
+        "url": "/images/project-01/page-3.png",
+        "caption": "空间隐喻：不看日期，看深度。向下重叠堆积，传上去的照片直接卡在土层断面，就像挖出来的老物件化石。"
       },
       {
-        "url": "/images/project-02/slide-04-iteration.png",
-        "caption": "DESIGN ITERATION: 交互推导与重构。这是最关键的一次改稿——为了适应老人颤抖的手指，我放弃了炫酷的蜂窝菜单，基于菲茨定律(Fitts's Law)设计了超大触控热区的'鹅卵石'按钮。"
+        "url": "/images/project-01/page-4.png",
+        "caption": "记忆的风化：不同心情代表不同色彩。随着时间推移，底层记录的色彩饱和度会自动衰减，隐喻记忆在时间冲刷下的模糊与失真。"
       },
       {
-    "url": "/images/project-02/slide-05-daily-guard.png",
-    "caption": "DAILY GUARD: 日常守护界面。在平静的日子里，数据应该是'隐形'的。子女端通过可视化的健康周报，一眼就能确认父母的睡眠与心率趋势，主打'不打扰'的陪伴。"
+        "url": "/images/project-01/page-5.png",
+        "caption": "交互仪式感：选情绪、打字、传照片。按下“深埋”瞬间，数据实体化成土层砸向屏幕底端，赋予输入物理重量。"
       },
       {
-    "url": "/images/project-02/slide-06-crisis.png",
-    "caption": "CRISIS RESPONSE: 危机响应模式。当跌倒发生时，UI 会瞬间切换为黑红配色的'生存模式'。去除所有装饰，只保留巨大的求救按钮，确保在慌乱中也能盲操作。"
+        "url": "/images/project-01/page-6.png",
+        "caption": "封存纪元：点击封存，将积累的岩层压缩成盒子，放进个人的数字标本盒里。"
       },
       {
-    "url": "/images/project-02/slide-07-emotion.png",
-    "caption": "EMOTIONAL CONNECTION: 情感连接设计。不仅仅是通话，更是'看见'。iPad 端特别设计了实时字幕功能与 AR 识人，跨越了听力障碍，让亲情沟通不再有隔阂。"
+        "url": "/images/project-01/page-7.png",
+        "caption": "岩芯提取凭证：每一块封存的记忆都能生成专属的“岩芯提取单”，包含情绪矿物占比与数据坐标，一键存入手机相册。"
+      }
+    ]
+  },
+  {
+    "id": "p2-guanque-tower",
+    "title": "登楼之前 - 鹳雀楼游客中心的空间叙事",
+    "subtitle": "空间叙事 / AR交互 / 多维体验闭环",
+    "coverImage": "/images/project-02/cover.png",
+    "tags": ["Spatial Design", "AR Interaction", "Service Design", "Culture"],
+    "date": "2026",
+    "theme": "culture",
+    "description": "全国超 2800 座古城景区空间呈现同质化样态，传统游客中心沦为单一的“售票与过境”通道。本项目试图把唐诗和土地变成空间，将鹳雀楼距市区 15 公里的枯燥车程转化为“登楼序章”。提取《登鹳雀楼》从“平远”到“高远”的视角切换，结合黄河原生态冲积黏土与唐代木构形制，打造不可复制的地域空间。针对青年、亲子及银发族规划了包含 AR 实景探索、线下造物工坊、数字光影环幕在内的三条专属路线，用数字沉浸与实体器物构建跨媒介的文化体验场域。",
+    "links": {
+      "live": "#",
+      "github": "#"
+    },
+    "images": [
+      {
+        "url": "/images/project-02/page-1.png",
+        "caption": "痛点与策略：打破同质化泛滥与功能性枯燥，引入 AR 实景探索、线下手作与复合茶座，提前介入情绪铺垫。"
       },
       {
-    "url": "/images/project-02/slide-08-overview.png",
-    "caption": "DESIGN OVERVIEW: 设计系统全览。汇总了涵盖 Watch/Phone/Pad 三端的所有核心界面，以及支撑起整个产品的 Design System —— 包括温暖的米色基调和严谨的无障碍字体系统。"
+        "url": "/images/project-02/page-2.png",
+        "caption": "灵感与材质转化：压制粗糙的室内表皮，提取黄河冲积黏土与北方秸秆，弃用常规大理石，让永济的土地感变得随手可摸。"
+      },
+      {
+        "url": "/images/project-02/page-3.png",
+        "caption": "体验剧本闭环：针对青年探索者（AR导览）、家庭亲子族（实体协作）和银发族（光影虚拟登楼）设计专属游览动线。"
+      },
+      {
+        "url": "/images/project-02/page-4.png",
+        "caption": "空间解构：唐代木构形制的当代解构。长亭根据展陈、休憩或快闪需求，可切换全围合、半围合与全开敞状态。"
+      },
+      {
+        "url": "/images/project-02/page-5.png",
+        "caption": "功能分区与多维动线：结合不同人群的驻留习惯，切分出咖啡、文创、茶饮及沉浸体验等不同动线区域。"
+      },
+      {
+        "url": "/images/project-02/page-6.png",
+        "caption": "AR 空间叙事：AR 实景扫描互动。通过裸眼视角识别物理场所特征点，叠加展现永济传统器物。"
+      },
+      {
+        "url": "/images/project-02/page-7.png",
+        "caption": "数字触点体验：从线下寻路到线上解构，涵盖数字地图导航、寻宝收藏与虚拟解构环节。"
+      },
+      {
+        "url": "/images/project-02/page-8.png",
+        "caption": "空间氛围：重塑大厅停留体验。利用半透明屏风过滤光线，为现代咖啡社交与慢节奏茶饮切分出半私密场域。"
+      },
+      {
+        "url": "/images/project-02/page-9.png",
+        "caption": "设计全览：光影叙事与历史可视化。数字沉浸展厅与实体器物交织，构建跨媒介的文化体验场域。"
+      },
+      {
+        "url": "/images/project-02/page-10.png",
+        "caption": "实体造物工坊：线下加工厂。游客凭手机收集的数字图纸兑换实体唐代榫卯零件，完成协作拼装。"
+      }
+    ]
+  },
+  {
+    "id": "p3-family-link-steady",
+    "title": "如常 - 适老化家庭健康守护终端",
+    "subtitle": "系统深化 / 数据可视化 / 情感化交互",
+    "coverImage": "/images/project-03/cover.png",
+    "tags": ["UX Research", "System Design", "Data Visualization", "Elderly Care"],
+    "date": "2026-01",
+    "theme": "elderly",
+    "description": "这个项目的起点源于我自己的真实焦虑。作为一个离家在外的毕业生，我无法时刻陪在父母身边，最大的担忧就是'看不见'他们的生活。市面上的老人手环虽然多，但大多像冷冰冰的监控器，或者操作复杂得让老人产生科技畏惧感。\n\n最初我尝试了很硬核的工业风，但很快发现那对老人来说是种'负担'。于是我推翻重来，基于菲茨定律(Fitts's Law)重构了交互逻辑，把按钮做成了温润的鹅卵石，配色也从'科技蓝'换成了更有温度的'苔藓绿'与'米色'。对我来说，如常（FamilyLink）不仅仅是一个监测心率的工具，它是客厅里那个能让爸妈随时看到孩子照片的电子相框，也是危急时刻能救命、联动全屋光影预警的一根红线。",
+    "links": {
+      "live": "#",
+      "github": "#"
+    },
+    "images": [
+      {
+        "url": "/images/project-03/page-1.png",
+        "caption": "项目背景与痛点洞察：面对 1.2 亿空巢老人的现状，试图解决'认知负荷过重'与'黄金救援缺失'这两大核心痛点。"
+      },
+      {
+        "url": "/images/project-03/page-2.png",
+        "caption": "用户调研与体验地图：展示了 72 岁独居老人的情绪曲线，系统如何介入'意外跌倒'场景，将危机转化为家人互动的温情时刻。"
+      },
+      {
+        "url": "/images/project-03/page-3.png",
+        "caption": "交互重构：为适应老人颤抖的手指，放弃蜂窝菜单，基于菲茨定律设计了超大触控热区的'鹅卵石'大按钮。"
+      },
+      {
+        "url": "/images/project-03/page-4.png",
+        "caption": "日常守护界面：数据可视化，一眼懂平安。子女端通过可视化的健康周报确认睡眠与心率趋势，主打'不打扰'的陪伴。"
+      },
+      {
+        "url": "/images/project-03/page-5.png",
+        "caption": "危机响应模式：当跌倒发生时，UI 会瞬间切换为黑红配色的'生存模式'，只保留呼救按钮，确保慌乱中也能盲操作。"
+      },
+      {
+        "url": "/images/project-03/page-6.png",
+        "caption": "情感连接设计：iPad 端设计实时字幕功能与手写便签，跨越听力衰退隔阂，让每次互动都有温度。"
+      },
+      {
+        "url": "/images/project-03/page-7.png",
+        "caption": "空间交互：打破虚实边界。环境空间响应，手表感知吃药提醒联动药柜亮灯，跌倒报警瞬间全屋变红向外呼救。"
+      },
+      {
+        "url": "/images/project-03/page-8.png",
+        "caption": "设计全览：涵盖三端界面的高对比度无障碍设计与温暖色彩规范体系。"
       }
     ] 
   },
   {
-    "id": "p3-unity-corridor",
-    "title": "Project: 无限回廊 (The Corridor)",
+    "id": "p4-unity-corridor",
+    "title": "坍塌 - 心理密室交互实验",
     "subtitle": "Unity 3D / 心理恐怖 / 沉浸式交互",
-    "coverImage": "/images/project-03/cover.png",
+    "coverImage": "/images/project-04/cover.png",
     "tags": ["Unity", "C#", "Game Design", "Psychological Horror"],
-    "tech": ["Unity", "C#", "Game Design", "Psychological Horror"],
     "date": "2026-01",
     "theme": "horror",
-    "description": "独立开发的心理恐怖游戏...",
+    "description": "一座映射心理内耗的无限迷宫。从自习室到心理迷宫，堆积如山的复习资料构成了物理上的围墙，隐喻着考研等社会压力带来的信息过载与令人窒息的焦虑感。利用缺乏人情味的现代建筑结构与狭长通道带来的隧道视野，隐喻备考期间单一、封闭的心理状态。开发上采用触发预制体（Prefab）来实现场景无限循环与性能优化。在一次次打卡与逃离的抉择中，玩家将在崩溃边缘体验认知过载的视角扭曲，最终超越系统限制，直面真实的自我。",
     "links": {
       "live": "#",
       "github": "#"
     },
     "images": [
       {
-        "url": "/images/project-03/game-01.png",
-        "caption": "LEVEL 01: 初始回廊 - 这里的灯光是完全正常的，用来降低玩家警惕"
+        "url": "/images/project-04/page-1.png",
+        "caption": "概念与调研：灵感来源。堆积如山的复习资料构成了物理围墙，狭长通道隐喻精神内耗与压迫感。"
       },
       {
-        "url": "/images/project-03/game-02.png",
-        "caption": "LEVEL 01: 初始回廊 - 循环触发点"
+        "url": "/images/project-04/page-2.png",
+        "caption": "交互体验（环境叙事）：空间逐渐挤压玩家视线。封闭的纸箱隐喻最初的'秩序'，随后落满地的书籍变为障碍物，造成窒息感。"
       },
       {
-        "url": "/images/project-03/game-03.png",
-        "caption": "LEVEL 01: 初始回廊 - 墙上海报装饰"
+        "url": "/images/project-04/page-3.png",
+        "caption": "交互体验（逻辑分支）：详细展示了游戏多重分支结局树，包括日复一日的循环、丧失理智的 Bad Ending 以及超越系统限制的 True Ending。"
       },
       {
-        "url": "/images/project-03/game-04.png",
-        "caption": "LEVEL 02: 二层回廊 - 灯光和障碍物有所变化"
+        "url": "/images/project-04/page-4.png",
+        "caption": "循环管理：通过 C# 脚本触发预制体（Prefab）控制关卡序列，巧妙实现无缝无限循环并优化渲染性能。"
       },
       {
-        "url": "/images/project-03/game-05.png",
-        "caption": "LEVEL 02: 二层回廊 - 墙上海报有所变化"
-      },
-      {
-        "url": "/images/project-03/game-06.png",
-        "caption": "LEVEL 03: 三层回廊 - 灯光有明显变化，障碍物明显增加"
-      },
-      {
-        "url": "/images/project-03/game-07.png",
-        "caption": "LEVEL 03: 三层回廊 - 拐角处异常触发点"
-      },
-      {
-        "url": "/images/project-03/game-08.png",
-        "caption": "LEVEL 03: 三层回廊 - 墙上海报和选择边框明显变化"
-      },
-      {
-        "url": "/images/project-03/game-09.png",
-        "caption": "LEVEL 04: 四层回廊 - 走廊灯光明显变红，障碍物明显增加，并且位置开始无规则变化"
-      },
-      {
-        "url": "/images/project-03/game-10.png",
-        "caption": "LEVEL 05: 五层回廊 - 走廊灯光更加变红，障碍物减少，并且位置扭曲严重"
-      },
-      {
-        "url": "/images/project-03/game-11.png",
-        "caption": "LEVEL 05: 五层回廊 - 循环触发点以及boss所在地"
-      },
-      {
-        "url": "/images/project-03/end1.png",
-        "caption": "结局1,逃亡失败,永远困在回廊中"
+        "url": "/images/project-04/page-5.png",
+        "caption": "自我反思：放弃单纯的变色贴图，探索空间几何的真实错觉与物理障碍永久破坏积累，增强交互重量感。"
       }
     ]
   },
   {
-    "id": "p4-echo-editor",
-    "title": "Project: ECHO (剧情逻辑编辑器)",
+    "id": "p5-check-in-app",
+    "title": "律 - 习惯养成与风格探索",
+    "subtitle": "UI/UX Design / Visual Identity",
+    "coverImage": "/images/project-05/cover.png",
+    "tags": ["UI/UX Design", "Visual Identity", "React"],
+    "theme": "minimal",
+    "prototypes": [
+      {
+        "url": "https://www.figma.com/proto/BpPnq5R5prd8CnB3kekwO6/Untitled?page-id=1%3A2&node-id=108-585&viewport=1142%2C296%2C0.14&t=CiHnabvYvKlto7om-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=108%3A826&show-proto-sidebar=1",
+        "category": "⚙️ 工业风格 (最终版)"
+      },
+      {
+        "url": "https://www.figma.com/proto/BpPnq5R5prd8CnB3kekwO6/Untitled?page-id=1%3A2&node-id=13-106&viewport=1142%2C296%2C0.14&t=CiHnabvYvKlto7om-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=27%3A546&show-proto-sidebar=1",
+        "category": "⚪ 极简风格 (初稿)"
+      }
+    ],
+    "description": "最初我想做一个简单的打卡App,为了求稳,随大流做了现在最常见的极简黑白风(V1)。做完虽然干净，但我自己都觉得无聊，用起来冷冰冰的。\n\n既然是我的作品，我不想它只是个没感情的工具。所以我把它推翻重来(V2)，换成了我现在很迷恋的工业/赛博风格。我加重了光影对比，甚至做了一些故障效果，就是为了让用户在点下'打卡'按钮的那一瞬间，能有一种游戏通关的爽感和仪式感。",
+    "images": [
+      {
+        "url": "/images/project-05/page-1.png",
+        "caption": "V2 启动页：直接放一个大大的'律'字镇场子。就是想用这种严肃、硬核的排版告诉自己：别嬉皮笑脸的，该开始自律了。",
+        "category": "⚙️ 工业风格 (最终版)"
+      },
+      {
+        "url": "/images/project-05/page-2.png",
+        "caption": "V2 主页设计：把功能区做成了像仪表盘一样的卡片。深色背景配上这些硬朗的线条，感觉不像是在打卡，像是在操作一台精密仪器，仪式感拉满。",
+        "category": "⚙️ 工业风格 (最终版)"
+      },
+      {
+        "url": "/images/project-05/page-3.png",
+        "caption": "V2 待机状态：为了让你有想去按它的冲动，我把按钮的光影做得特别立体，悬浮在屏幕上，好像在说：'快点我，就差这一步了'。",
+        "category": "⚙️ 工业风格 (最终版)"
+      },
+      {
+        "url": "/images/project-05/page-4.png",
+        "caption": "V2 完成反馈：按下按钮的那一刻，做了一个像游戏通关一样的'故障风'跳动效果。打卡嘛，要的就是这一下'爽'的感觉。",
+        "category": "⚙️ 工业风格 (最终版)"
+      },
+      {
+        "url": "/images/project-05/page-5.png",
+        "caption": "V1 登录页：这是最早的一版，简简单单的白底黑字。虽然看着很干净，但总觉得太'乖'了，少了点让人兴奋的性格。",
+        "category": "⚪ 极简风格 (初稿)"
+      },
+      {
+        "url": "/images/project-05/page-6.png",
+        "caption": "V1 主页：当时尝试了'新拟态'风格的软绵绵投影。看久了容易视觉疲劳，且缺乏工业风的酷劲。",
+        "category": "⚪ 极简风格 (初稿)"
+      },
+      {
+        "url": "/images/project-05/page-7.png",
+        "caption": "V1 待机：按钮设计得过于克制，几乎和背景融为一体。视觉引导性较弱，不够抓人眼球。",
+        "category": "⚪ 极简风格 (初稿)"
+      },
+      {
+        "url": "/images/project-05/page-8.png",
+        "caption": "V1 反馈：打卡成功的常规提示。作为要激励用户的 App，这种反馈给人的正向刺激与成就感有点弱。",
+        "category": "⚪ 极简风格 (初稿)"
+      }
+    ]
+  },
+  {
+    "id": "p6-echo-editor",
+    "title": "ECHO - 剧情逻辑编辑器",
     "subtitle": "UI Design / 游戏工具 / 赛博工业风",
-    "coverImage": "/images/project-04/cover.png",
+    "coverImage": "/images/project-06/cover.png",
     "tags": ["UI/UX", "Game Tool", "Cyberpunk", "Dark UI"],
     "tech": ["Figma", "Unity", "Design System"],
     "date": "2026-01",
@@ -189,19 +260,19 @@
     },
     "images": [
       {
-        "url": "/images/project-04/page-1.png",
+        "url": "/images/project-06/page-1.png",
         "caption": "ECHO编辑器首页;拯救Excel策划的暗黑风逻辑连线工具,写剧情就像玩连连看"
       },
       {
-        "url": "/images/project-04/page2.png",
+        "url": "/images/project-06/page-2.png",
         "caption": "分屏视图;左边点3D机关,右边逻辑节点自动高亮,所见即所得,专治逻辑找不到"
       },
       {
-        "url": "/images/project-04/page-3.png",
+        "url": "/images/project-06/page-3.png",
         "caption": "数据监控;实时盯着玩家Sanity值掉没掉,上帝视角Debug专用面板"
       },
       {
-        "url": "/images/project-04/page-4.png",
+        "url": "/images/project-06/page-4.png",
         "caption": "UI规范;深灰底色撞荧光绿,配合机械感字体"
       }
     ]
