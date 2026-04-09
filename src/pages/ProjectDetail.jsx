@@ -28,7 +28,7 @@ function ProjectDetail() {
 
   const getThemeColors = () => {
     // 1. 预处理数据
-    const pTheme = (project.theme || '').toLowerCase(); 
+    const pTheme = (project.theme || '').toLowerCase();
     const tags = (project.tags || []).join(' ').toLowerCase();
     const title = (project.title || '').toLowerCase();
 
@@ -154,20 +154,15 @@ function ProjectDetail() {
       
       {/* --- 🌟 氛围层：模仿 COD 受伤的四周光晕 (Vignette) --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        
         {/* 左上角光晕 */}
         <div className={`absolute -top-[20%] -left-[20%] w-[70vw] h-[70vw] rounded-full blur-[120px] mix-blend-multiply transition-colors duration-1000 ${theme.tl}`} />
-        
         {/* 右上角光晕 */}
         <div className={`absolute -top-[20%] -right-[20%] w-[60vw] h-[60vw] rounded-full blur-[100px] mix-blend-multiply transition-colors duration-1000 ${theme.tr}`} />
-        
         {/* 左下角光晕 */}
         <div className={`absolute -bottom-[20%] -left-[20%] w-[60vw] h-[60vw] rounded-full blur-[100px] mix-blend-multiply transition-colors duration-1000 ${theme.bl}`} />
-        
         {/* 右下角光晕 */}
         <div className={`absolute -bottom-[20%] -right-[20%] w-[70vw] h-[70vw] rounded-full blur-[120px] mix-blend-multiply transition-colors duration-1000 ${theme.br}`} />
-
-        {/* 整体噪点纹理 (增加一点质感，不让颜色看起来太“平”) */}
+        {/* 整体噪点纹理 */}
         <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
       </div>
 
@@ -206,23 +201,45 @@ function ProjectDetail() {
                 </span>
               ))}
             </div>
-            {/* 标题加了点混合模式，让它更好地融入背景 */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 italic text-gray-900 drop-shadow-sm">
                 {project.title}
             </h1>
           </motion.div>
 
-          {/* 项目描述 */}
+          {/* 项目描述及体验按钮 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mb-12"
           >
-            {/* 描述框改为更加通透的毛玻璃 */}
             <p className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line border-l-4 border-gray-200 pl-6 py-2">
               {project.description}
             </p>
+
+            {/* --- ✨ 新增：在线体验 Demo 按钮 ✨ --- */}
+            {project.links && project.links.live && project.links.live !== "#" && (
+              <div className="mt-8 ml-6"> {/* ml-6 使得按钮与上方描述文字左对齐 */}
+                <a 
+                  href={project.links.live} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-3.5 
+                             text-sm sm:text-base font-medium text-white 
+                             bg-zinc-900 rounded-full 
+                             transition-all duration-300 ease-out 
+                             hover:bg-zinc-800 hover:shadow-lg hover:-translate-y-1 hover:ring-2 hover:ring-zinc-500 hover:ring-offset-2 hover:ring-offset-white
+                             active:scale-95"
+                >
+                  ✨ 在线体验 Demo
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            )}
+            {/* ------------------------------------ */}
+            
           </motion.div>
 
           {/* Tab 切换按钮 */}
@@ -266,7 +283,6 @@ function ProjectDetail() {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     className="flex flex-col gap-4"
                   >
-                    {/* 图片容器：加了一个很干净的白色底座 */}
                     <div className="overflow-hidden rounded-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white bg-white ring-1 ring-gray-100">
                       <ImageComponent
                         src={imageUrl}
