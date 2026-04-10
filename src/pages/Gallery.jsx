@@ -144,16 +144,20 @@ function Gallery() {
           </motion.div>
 
           {/* ================= 纯 CSS 瀑布流排版 (Masonry) ================= */}
-          {/* 🔥 已修改为手机端强制双列 (columns-2) 并优化了手机端间距 (gap-3) 🔥 */}
-          <div className="columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-6 space-y-3 sm:space-y-6">
+          {/* 1. 删除了坑人的 space-y，单纯只控制列数和列间距 gap */}
+          <div className="columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-6">
             {photos.map((src, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                // 2. 优化动画：稍微缩短移动距离 (y:15)，去掉杂乱的延迟，增加缓冲动画曲线
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (index % 5) * 0.1 }}
-                className="break-inside-avoid overflow-hidden rounded-lg sm:rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group bg-white"
+                // margin: "50px" 可以让图片还没完全滑进屏幕时就提前触发加载动画，避免突然闪现
+                viewport={{ once: true, margin: "50px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                // 3. 关键修复：把上下间距改用 mb-3 sm:mb-6 加在每个子元素身上。
+                // 同时加上 inline-block w-full，这是防止瀑布流图片被腰斩、乱跳的终极防线
+                className="break-inside-avoid inline-block w-full mb-3 sm:mb-6 overflow-hidden rounded-lg sm:rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group bg-white"
               >
                 <img 
                   src={src} 
