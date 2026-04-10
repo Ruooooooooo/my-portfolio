@@ -2,6 +2,7 @@
   {
     "id": "p1-strata-data-vis",
     "title": "层积 - 情绪可视化的数字地质实验",
+    "entranceEffect": "gravity",
     "subtitle": "数据可视化 / 交互仪式感 / 隐喻设计",
     "coverImage": "/images/project-01/cover.png",
     "tags": ["Data Visualization", "UI/UX", "Interactive Metaphor"],
@@ -46,6 +47,7 @@
   {
     "id": "p2-guanque-tower",
     "title": "登楼之前 - 鹳雀楼游客中心的空间叙事",
+    "entranceEffect": "z-depth",
     "subtitle": "空间叙事 / AR交互 / 多维体验闭环",
     "coverImage": "/images/project-02/cover.png",
     "tags": ["Spatial Design", "AR Interaction", "Service Design", "Culture"],
@@ -137,6 +139,7 @@
   {
     "id": "p3-family-link-steady",
     "title": "如常 - 适老化家庭健康守护终端",
+    "entranceEffect": "breathe",
     "subtitle": "系统深化 / 数据可视化 / 情感化交互",
     "coverImage": "/images/project-03/cover.png",
     "tags": ["UX Research", "System Design", "Data Visualization", "Elderly Care"],
@@ -185,6 +188,7 @@
   {
     "id": "p4-unity-corridor",
     "title": "坍塌 - 心理密室交互实验",
+    "entranceEffect": "glitch",
     "subtitle": "Unity 3D / 心理恐怖 / 沉浸式交互",
     "coverImage": "/images/project-04/cover.png",
     "tags": ["Unity", "C#", "Game Design", "Psychological Horror"],
@@ -256,6 +260,7 @@
   {
     "id": "p5-check-in-app",
     "title": "律 - 习惯养成与风格探索",
+    "entranceEffect": "grid-snap",
     "subtitle": "UI/UX Design / Visual Identity",
     "coverImage": "/images/project-05/cover.png",
     "tags": ["UI/UX Design", "Visual Identity", "React"],
@@ -337,6 +342,7 @@
   {
     "id": "p6-echo-editor",
     "title": "ECHO - 剧情逻辑编辑器",
+    "entranceEffect": "terminal",
     "subtitle": "UI Design / 游戏工具 / 赛博工业风",
     "coverImage": "/images/project-06/cover.png",
     "tags": ["UI/UX", "Game Tool", "Cyberpunk", "Dark UI"],
