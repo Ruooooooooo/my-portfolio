@@ -256,41 +256,5 @@
         "caption": "UI规范;深灰底色撞荧光绿,配合机械感字体"
       }
     ]
-  },
-  {
-    "id": "p7-unity-corridor",
-    "title": "坍塌 - 心理密室交互实验",
-    "subtitle": "Unity 3D / 心理恐怖 / 沉浸式交互",
-    "coverImage": "/images/project-04/cover.png",
-    "tags": ["Unity", "C#", "Game Design", "Psychological Horror"],
-    "date": "2026-01",
-    "theme": "horror",
-    "description": "一座映射心理内耗的无限迷宫。从自习室到心理迷宫，堆积如山的复习资料构成了物理上的围墙，隐喻着考研等社会压力带来的信息过载与令人窒息的焦虑感。利用缺乏人情味的现代建筑结构与狭长通道带来的隧道视野，隐喻备考期间单一、封闭的心理状态。开发上采用触发预制体（Prefab）来实现场景无限循环与性能优化。在一次次打卡与逃离的抉择中，玩家将在崩溃边缘体验认知过载的视角扭曲，最终超越系统限制，直面真实的自我。",
-    "links": {
-      "live": "#",
-      "github": "#"
-    },
-    "images": [
-      {
-        "url": "/images/project-04/page-1.png",
-        "caption": "概念与调研：灵感来源。堆积如山的复习资料构成了物理围墙，狭长通道隐喻精神内耗与压迫感。"
-      },
-      {
-        "url": "/images/project-04/page-2.png",
-        "caption": "交互体验（环境叙事）：空间逐渐挤压玩家视线。封闭的纸箱隐喻最初的'秩序'，随后落满地的书籍变为障碍物，造成窒息感。"
-      },
-      {
-        "url": "/images/project-04/page-3.png",
-        "caption": "交互体验（逻辑分支）：详细展示了游戏多重分支结局树，包括日复一日的循环、丧失理智的 Bad Ending 以及超越系统限制的 True Ending。"
-      },
-      {
-        "url": "/images/project-04/page-4.png",
-        "caption": "循环管理：通过 C# 脚本触发预制体（Prefab）控制关卡序列，巧妙实现无缝无限循环并优化渲染性能。"
-      },
-      {
-        "url": "/images/project-04/page-5.png",
-        "caption": "自我反思：放弃单纯的变色贴图，探索空间几何的真实错觉与物理障碍永久破坏积累，增强交互重量感。"
-      }
-    ]
   }
 ]

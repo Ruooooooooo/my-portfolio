@@ -11,11 +11,9 @@ function Gallery() {
   }, []);
 
   // 1. 如果你有一张特别震撼的“横版大片”，把它放在这里作为镇楼图
-  // 请确保 public/images/gallery/ 目录下有这张名为 hero.jpg 的图
-  // (如果你不想单独展示大图，可以把下方的对应代码删掉)
   const heroImage = '/images/gallery/hero.jpg'; 
 
-  // 2. 这里填入你所有的照片文件名（竖图、横图都可以混搭放在这里）
+  // 2. 这里填入你所有的照片文件名
   const photos = [
     '/images/gallery/1.jpg',
     '/images/gallery/2.jpg',
@@ -107,8 +105,6 @@ function Gallery() {
     '/images/gallery/88.jpg',
     '/images/gallery/89.jpg',
     '/images/gallery/90.jpg',
-    // 将你刚才上传的图重命名为 9.jpg 放进文件夹，然后在这里加上:
-    // '/images/gallery/9.jpg',
   ];
 
   return (
@@ -133,7 +129,7 @@ function Gallery() {
             </p>
           </div>
 
-          {/* 🔥 新增：顶部横幅“镇楼图”展示区 (非常适合展示 16:9 横版大片) 🔥 */}
+          {/* 🔥 顶部横幅“镇楼图”展示区 🔥 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,7 +144,8 @@ function Gallery() {
           </motion.div>
 
           {/* ================= 纯 CSS 瀑布流排版 (Masonry) ================= */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+          {/* 🔥 已修改为手机端强制双列 (columns-2) 并优化了手机端间距 (gap-3) 🔥 */}
+          <div className="columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-6 space-y-3 sm:space-y-6">
             {photos.map((src, index) => (
               <motion.div
                 key={index}
@@ -156,7 +153,7 @@ function Gallery() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: (index % 5) * 0.1 }}
-                className="break-inside-avoid overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group bg-white"
+                className="break-inside-avoid overflow-hidden rounded-lg sm:rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group bg-white"
               >
                 <img 
                   src={src} 
