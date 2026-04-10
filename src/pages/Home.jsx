@@ -113,7 +113,7 @@ const Home = () => {
            </span>
         </div>
 
-        {/* 🔥 新增：置顶的摄影画廊入口横幅 🔥 */}
+        {/* 🔥 重新设计：现代主义工业风摄影入口 🔥 */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -122,24 +122,40 @@ const Home = () => {
         >
           <Link 
             to="/gallery" 
-            className="group flex flex-row items-center justify-between p-5 lg:p-6 w-full rounded-2xl bg-white border border-gray-200 hover:border-zinc-900 hover:shadow-xl transition-all duration-300"
+            // 1. 去掉大圆角，改为小圆角 rounded-sm，更直边
+            // 2. 改为黑底白字 bg-zinc-950，去掉软阴影
+            className="group relative flex flex-row items-center justify-between p-5 lg:p-6 w-full rounded-sm bg-zinc-950 border border-zinc-800 hover:border-zinc-400 transition-all duration-500 overflow-hidden"
           >
-            <div className="flex items-center gap-5">
-              <div className="w-12 h-12 rounded-full bg-zinc-50 flex items-center justify-center group-hover:bg-zinc-900 transition-colors shrink-0">
-                <Camera className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+            <div className="flex items-center gap-5 relative z-10">
+              {/* 图标区：从圆形改为带小圆角的正方形 */}
+              <div className="w-12 h-12 rounded bg-zinc-900 flex items-center justify-center group-hover:bg-zinc-800 transition-colors shrink-0 border border-zinc-800">
+                <Camera className="w-5 h-5 text-zinc-500 group-hover:text-white transition-colors" />
               </div>
+              
               <div>
-                <h3 className="text-base lg:text-lg font-bold text-gray-900 group-hover:text-black transition-colors">
-                  探寻 B 面：光影日常
+                {/* 标题文字：更硬朗的字体粗细，黑白灰配色 */}
+                <h3 className="text-base lg:text-lg font-bold text-white tracking-tight">
+                  RAW_GALLERY // 光影日常
                 </h3>
-                <p className="text-sm text-gray-500 mt-1">
-                  Photography Collection — 构图与光影的练习场
+                {/* 辅助文字：全用等宽字体 (font-mono) 和大写，像系统日志一样 */}
+                <p className="text-[11px] font-mono text-zinc-500 mt-1 uppercase tracking-widest group-hover:text-zinc-400 transition-colors">
+                  B-Side : Visual fragments of observation.
                 </p>
               </div>
             </div>
-            <div className="hidden sm:block text-gray-400 group-hover:text-zinc-900 transition-colors font-mono text-sm pr-2">
-              VIEW_GALLERY -&gt;
+
+            {/* 右侧交互区：极简设计，增加一个状态指示点 */}
+            <div className="hidden sm:flex flex-row items-center gap-3 text-zinc-600 group-hover:text-white transition-colors font-mono text-xs pr-2 relative z-10">
+              {/* 绿色状态点，像控制台的指示灯 */}
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+              STATUS: ACTIVE -&gt;
             </div>
+
+            {/* 🔥 悬浮装饰：四角的细线条，呼应左侧框架风格，鼠标悬停时浮现 🔥 */}
+            <div className="absolute top-0 left-0 w-2 h-2 border-l border-t border-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute top-0 right-0 w-2 h-2 border-r border-t border-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute bottom-0 left-0 w-2 h-2 border-l border-b border-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute bottom-0 right-0 w-2 h-2 border-r border-b border-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </Link>
         </motion.div>
 
