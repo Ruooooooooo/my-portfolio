@@ -221,26 +221,6 @@
         "url": "/images/project-05/page-4.png",
         "caption": "V2 完成反馈：按下按钮的那一刻，做了一个像游戏通关一样的'故障风'跳动效果。打卡嘛，要的就是这一下'爽'的感觉。",
         "category": "⚙️ 工业风格 (最终版)"
-      },
-      {
-        "url": "/images/project-05/page-5.png",
-        "caption": "V1 登录页：这是最早的一版，简简单单的白底黑字。虽然看着很干净，但总觉得太'乖'了，少了点让人兴奋的性格。",
-        "category": "⚪ 极简风格 (初稿)"
-      },
-      {
-        "url": "/images/project-05/page-6.png",
-        "caption": "V1 主页：当时尝试了'新拟态'风格的软绵绵投影。看久了容易视觉疲劳，且缺乏工业风的酷劲。",
-        "category": "⚪ 极简风格 (初稿)"
-      },
-      {
-        "url": "/images/project-05/page-7.png",
-        "caption": "V1 待机：按钮设计得过于克制，几乎和背景融为一体。视觉引导性较弱，不够抓人眼球。",
-        "category": "⚪ 极简风格 (初稿)"
-      },
-      {
-        "url": "/images/project-05/page-8.png",
-        "caption": "V1 反馈：打卡成功的常规提示。作为要激励用户的 App，这种反馈给人的正向刺激与成就感有点弱。",
-        "category": "⚪ 极简风格 (初稿)"
       }
     ]
   },
@@ -274,6 +254,42 @@
       {
         "url": "/images/project-06/page-4.png",
         "caption": "UI规范;深灰底色撞荧光绿,配合机械感字体"
+      }
+    ]
+  },
+  {
+    "id": "p7-unity-corridor",
+    "title": "坍塌 - 心理密室交互实验",
+    "subtitle": "Unity 3D / 心理恐怖 / 沉浸式交互",
+    "coverImage": "/images/project-04/cover.png",
+    "tags": ["Unity", "C#", "Game Design", "Psychological Horror"],
+    "date": "2026-01",
+    "theme": "horror",
+    "description": "一座映射心理内耗的无限迷宫。从自习室到心理迷宫，堆积如山的复习资料构成了物理上的围墙，隐喻着考研等社会压力带来的信息过载与令人窒息的焦虑感。利用缺乏人情味的现代建筑结构与狭长通道带来的隧道视野，隐喻备考期间单一、封闭的心理状态。开发上采用触发预制体（Prefab）来实现场景无限循环与性能优化。在一次次打卡与逃离的抉择中，玩家将在崩溃边缘体验认知过载的视角扭曲，最终超越系统限制，直面真实的自我。",
+    "links": {
+      "live": "#",
+      "github": "#"
+    },
+    "images": [
+      {
+        "url": "/images/project-04/page-1.png",
+        "caption": "概念与调研：灵感来源。堆积如山的复习资料构成了物理围墙，狭长通道隐喻精神内耗与压迫感。"
+      },
+      {
+        "url": "/images/project-04/page-2.png",
+        "caption": "交互体验（环境叙事）：空间逐渐挤压玩家视线。封闭的纸箱隐喻最初的'秩序'，随后落满地的书籍变为障碍物，造成窒息感。"
+      },
+      {
+        "url": "/images/project-04/page-3.png",
+        "caption": "交互体验（逻辑分支）：详细展示了游戏多重分支结局树，包括日复一日的循环、丧失理智的 Bad Ending 以及超越系统限制的 True Ending。"
+      },
+      {
+        "url": "/images/project-04/page-4.png",
+        "caption": "循环管理：通过 C# 脚本触发预制体（Prefab）控制关卡序列，巧妙实现无缝无限循环并优化渲染性能。"
+      },
+      {
+        "url": "/images/project-04/page-5.png",
+        "caption": "自我反思：放弃单纯的变色贴图，探索空间几何的真实错觉与物理障碍永久破坏积累，增强交互重量感。"
       }
     ]
   }

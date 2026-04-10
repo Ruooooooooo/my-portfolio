@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Mail, Linkedin, Globe, Crosshair } from 'lucide-react';
+import { ArrowDown, Github, Mail, Linkedin, Globe, Crosshair, Camera } from 'lucide-react'; // 新增引入 Camera 图标
+import { Link } from 'react-router-dom'; // 新增引入 Link 组件
 import ProjectCard from '../components/ProjectCard';
 import projectsData from '../data/projects.json';
 import profileData from '../data/profile.json';
@@ -83,7 +84,7 @@ const Home = () => {
             {profileData.bio}
           </p>
 
-          {/* 🔥 新增：技能图标组件 (带间距) */}
+          {/* 技能图标组件 (带间距) */}
           <div className="mb-10">
             <TechStack />
           </div>
@@ -126,7 +127,7 @@ const Home = () => {
         </div>
 
         {/* Grid System */}
-        <div className="grid grid-cols-1 gap-y-20 lg:gap-y-32 pb-32">
+        <div className="grid grid-cols-1 gap-y-20 lg:gap-y-32 pb-20">
           {projectsData?.map((project, index) => (
             <ProjectCard 
               key={project.id} 
@@ -135,6 +136,30 @@ const Home = () => {
             />
           ))}
         </div>
+
+        {/* 🔥 新增：摄影画廊入口彩蛋 🔥 */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="pb-32 flex justify-center"
+        >
+          <Link 
+            to="/gallery" 
+            className="group flex flex-col items-center p-6 md:p-8 rounded-3xl bg-white border border-gray-200 hover:bg-zinc-900 hover:border-zinc-900 transition-all duration-500 shadow-sm hover:shadow-xl w-full max-w-sm"
+          >
+            <div className="w-14 h-14 rounded-full bg-zinc-50 flex items-center justify-center mb-4 group-hover:bg-zinc-800 transition-colors">
+              <Camera className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" />
+            </div>
+            <h3 className="text-lg font-medium text-gray-900 group-hover:text-white transition-colors">
+              探寻 B 面：光影日常
+            </h3>
+            <p className="text-sm text-gray-500 mt-2 group-hover:text-gray-400 transition-colors">
+              Photography Collection →
+            </p>
+          </Link>
+        </motion.div>
+
       </div>
 
     </div>
