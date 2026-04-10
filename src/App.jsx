@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import ProjectDetail from './pages/ProjectDetail'
 import Gallery from './pages/Gallery' // 👈 1. 新增：引入刚才写的摄影画廊页面
+import ProjectRenders from './pages/ProjectRenders';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
           <Route path="/gallery" element={<Gallery />} /> {/* 👈 2. 新增：把画廊加进路由列表里 */}
+          <Route path="/project/:id/renders" element={<ProjectRenders />} />
         </Routes>
       </div>
     </Router>

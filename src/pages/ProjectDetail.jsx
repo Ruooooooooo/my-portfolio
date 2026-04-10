@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, Maximize2, Smartphone } from 'lucide-react'
+import { ArrowLeft, Maximize2, Smartphone, Camera } from 'lucide-react' // 👈 新增了 Camera 图标
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import ImageComponent from '../components/ImageComponent'
@@ -44,42 +44,32 @@ function ProjectDetail() {
       };
     }
 
-    // --- 🟣 风格 1: Cyberpunk/赛博工业 (Project 4 - 修正版：通透不脏) ---
-    // 🎨 配色：深紫(#510074) + 荧光绿(#84FF6B)
+    // --- 🟣 风格 1: Cyberpunk/赛博工业 ---
     if (pTheme === 'industrial' || tags.includes('cyberpunk') || title.includes('echo')) {
       return {
-        // 🔧 关键修改：背景透明度降到 /5 或 /10，保证网页看起来干净清爽
-        tl: 'bg-[#510074]/5',    // 左上：几乎透明的紫气
-        tr: 'bg-[#84FF6B]/15',   // 右上：淡淡的绿光
-        bl: 'bg-[#84FF6B]/10',   // 左下
-        br: 'bg-[#510074]/10',   // 右下
-        
-        // 按钮：保留你的“初号机”高饱和配色
+        tl: 'bg-[#510074]/5',    
+        tr: 'bg-[#84FF6B]/15',   
+        bl: 'bg-[#84FF6B]/10',   
+        br: 'bg-[#510074]/10',   
         accent: 'bg-[#510074] hover:bg-[#3d0058] text-[#84FF6B] shadow-lg shadow-purple-900/20',
-        // 标签：非常淡的紫色背景
         tagBg: 'bg-[#510074]/5 text-[#510074] border border-[#510074]/20'
       };
     }
 
-    // --- 🩸 风格 3: Horror/恐怖游戏 (Project 3 - 修正版：压抑血腥) ---
-    // 之前的 rose 太粉了，改为 red-900 (深红) + stone-800 (深灰)
+    // --- 🩸 风格 3: Horror/恐怖游戏 ---
     if (pTheme === 'horror' || pTheme === 'game' || 
         tags.includes('horror') || tags.includes('game') || title.includes('恐怖')) {
       return {
-        // 💀 氛围：左上是血红色，右下是阴森的黑灰色
-        tl: 'bg-red-800/30',      // 左上：干涸的血迹感
-        tr: 'bg-stone-800/30',    // 右上：阴影/黑暗
-        bl: 'bg-red-600/20',      // 左下：新鲜血迹感
-        br: 'bg-stone-900/40',    // 右下：沉重的压迫感
-        
-        // 按钮：深红底色，像警告牌
+        tl: 'bg-red-800/30',      
+        tr: 'bg-stone-800/30',    
+        bl: 'bg-red-600/20',      
+        br: 'bg-stone-900/40',    
         accent: 'bg-red-950 hover:bg-red-900 text-red-50 shadow-lg shadow-red-900/20',
-        // 标签：带红色的灰底
         tagBg: 'bg-stone-100 text-red-900 border border-red-200'
       };
     }
 
-    // --- 🟢 风格 2: Elderly/适老疗愈 (Project 2 - 保持不动) ---
+    // --- 🟢 风格 2: Elderly/适老疗愈 ---
     if (pTheme === 'elderly' || pTheme === 'care' || 
         tags.includes('elderly') || tags.includes('care') || title.includes('老人')) {
       return {
@@ -105,19 +95,16 @@ function ProjectDetail() {
 
   const theme = getThemeColors();
 
-  // -----------------------------------------------------------
-
   const categories = project.images 
     ? [...new Set(project.images.map(img => img.category).filter(Boolean))]
     : [];
   
   const showTabs = categories.length > 1;
-
   const filteredImages = project.images.filter(item => {
     if (typeof item === 'string') return activeTab === 'all';
     return activeTab === 'all' || !item.category || item.category === activeTab;
   });
-
+  
   const getCurrentFigmaUrl = () => {
     if (project.prototypes && project.prototypes.length > 0) {
       const matched = project.prototypes.find(p => p.category === activeTab);
@@ -127,7 +114,6 @@ function ProjectDetail() {
   };
 
   const currentRawUrl = getCurrentFigmaUrl();
-
   const getCleanFigmaUrl = (url) => {
     if (!url) return '';
     if (url.includes('embed.figma.com')) {
@@ -137,7 +123,7 @@ function ProjectDetail() {
   };
 
   const figmaEmbedUrl = getCleanFigmaUrl(currentRawUrl);
-
+  
   const openFullScreen = () => {
     if (currentRawUrl) {
       window.open(
@@ -149,29 +135,23 @@ function ProjectDetail() {
   };
 
   return (
-    // 外层容器：纯白底色，确保干净
     <div className="min-h-screen flex flex-col bg-white text-gray-900 relative overflow-hidden">
       
-      {/* --- 🌟 氛围层：模仿 COD 受伤的四周光晕 (Vignette) --- */}
+      {/* --- 🌟 氛围层 --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        {/* 左上角光晕 */}
         <div className={`absolute -top-[20%] -left-[20%] w-[70vw] h-[70vw] rounded-full blur-[120px] mix-blend-multiply transition-colors duration-1000 ${theme.tl}`} />
-        {/* 右上角光晕 */}
         <div className={`absolute -top-[20%] -right-[20%] w-[60vw] h-[60vw] rounded-full blur-[100px] mix-blend-multiply transition-colors duration-1000 ${theme.tr}`} />
-        {/* 左下角光晕 */}
         <div className={`absolute -bottom-[20%] -left-[20%] w-[60vw] h-[60vw] rounded-full blur-[100px] mix-blend-multiply transition-colors duration-1000 ${theme.bl}`} />
-        {/* 右下角光晕 */}
         <div className={`absolute -bottom-[20%] -right-[20%] w-[70vw] h-[70vw] rounded-full blur-[120px] mix-blend-multiply transition-colors duration-1000 ${theme.br}`} />
-        {/* 整体噪点纹理 */}
         <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
       </div>
 
-      {/* --- 导航栏 (z-50) --- */}
+      {/* --- 导航栏 --- */}
       <div className="relative z-50">
         <Navbar />
       </div>
 
-      {/* --- 主内容区 (z-10) --- */}
+      {/* --- 主内容区 --- */}
       <main className="flex-1 pt-20 md:pt-24 relative z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
           
@@ -206,7 +186,7 @@ function ProjectDetail() {
             </h1>
           </motion.div>
 
-          {/* 项目描述及体验按钮 */}
+          {/* 项目描述及按钮操作区 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -217,29 +197,36 @@ function ProjectDetail() {
               {project.description}
             </p>
 
-            {/* --- ✨ 新增：在线体验 Demo 按钮 ✨ --- */}
-            {project.links && project.links.live && project.links.live !== "#" && (
-              <div className="mt-8 ml-6"> {/* ml-6 使得按钮与上方描述文字左对齐 */}
+            {/* 🔥 按键操作区：包含 Demo 按钮 和 渲染图画廊按钮 🔥 */}
+            <div className="mt-8 ml-6 flex flex-wrap gap-4">
+              
+              {/* 1. 在线体验 Demo 按钮 */}
+              {project.links && project.links.live && project.links.live !== "#" && (
                 <a 
                   href={project.links.live} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-3.5 
-                             text-sm sm:text-base font-medium text-white 
-                             bg-zinc-900 rounded-full 
-                             transition-all duration-300 ease-out 
-                             hover:bg-zinc-800 hover:shadow-lg hover:-translate-y-1 hover:ring-2 hover:ring-zinc-500 hover:ring-offset-2 hover:ring-offset-white
-                             active:scale-95"
+                  className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-3.5 text-sm sm:text-base font-medium text-white bg-zinc-900 rounded-full transition-all duration-300 ease-out hover:bg-zinc-800 hover:shadow-lg hover:-translate-y-1 hover:ring-2 hover:ring-zinc-500 hover:ring-offset-2 hover:ring-offset-white active:scale-95"
                 >
                   ✨ 在线体验 Demo
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
-              </div>
-            )}
-            {/* ------------------------------------ */}
-            
+              )}
+
+              {/* 2. 幕后渲染与概念探索 按钮 (只有写了 extraRenders 的项目才会显示) */}
+              {project.extraRenders && project.extraRenders.length > 0 && (
+                <Link
+                  to={`/project/${project.id}/renders`}
+                  className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-3.5 text-sm sm:text-base font-medium text-zinc-900 bg-white border-2 border-zinc-900 rounded-full transition-all duration-300 ease-out hover:bg-zinc-50 hover:shadow-lg hover:-translate-y-1 active:scale-95"
+                >
+                  <Camera className="w-4 h-4 mr-2" />
+                  幕后渲染与概念画廊
+                </Link>
+              )}
+              
+            </div>
           </motion.div>
 
           {/* Tab 切换按钮 */}
@@ -344,49 +331,13 @@ function ProjectDetail() {
           )}
 
         </div>
-        
-      </main>
-      {/* ================= 附加渲染图 / 概念画廊 ================= */}
-          {/* 只有当这个项目有 extraRenders 数据时，这部分才会显示 */}
-          {project.extraRenders && project.extraRenders.length > 0 && (
-            <div className="mt-24 lg:mt-32 pt-16 border-t border-zinc-200">
-              <div className="mb-10">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2 font-mono">
-                  EXTRA_RENDERS // 概念与未收录视角
-                </h3>
-                <p className="text-gray-500 text-sm">
-                  更多关于材质、光影与场景的早期探索过程。
-                </p>
-              </div>
 
-              {/* 迷你瀑布流：手机端 1 列或 2 列，电脑端 2 列 */}
-              <div className="columns-2 gap-3 sm:gap-6">
-                {project.extraRenders.map((src, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "50px" }}
-                    transition={{ duration: 0.6, delay: (index % 3) * 0.1, ease: "easeOut" }}
-                    className="break-inside-avoid inline-block w-full mb-3 sm:mb-6 overflow-hidden rounded-lg bg-zinc-100 group"
-                  >
-                    <img 
-                      src={src} 
-                      alt={`Extra Render ${index + 1}`}
-                      className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                      loading="lazy"
-                    />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          )}
-      
-      {/* --- Footer (z-50) --- */}
+      {/* --- Footer --- */}
       <div className="relative z-50">
         <Footer />
       </div>
 
+    </main>
     </div>
   )
 }
