@@ -344,7 +344,43 @@ function ProjectDetail() {
           )}
 
         </div>
+        
       </main>
+      {/* ================= 附加渲染图 / 概念画廊 ================= */}
+          {/* 只有当这个项目有 extraRenders 数据时，这部分才会显示 */}
+          {project.extraRenders && project.extraRenders.length > 0 && (
+            <div className="mt-24 lg:mt-32 pt-16 border-t border-zinc-200">
+              <div className="mb-10">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2 font-mono">
+                  EXTRA_RENDERS // 概念与未收录视角
+                </h3>
+                <p className="text-gray-500 text-sm">
+                  更多关于材质、光影与场景的早期探索过程。
+                </p>
+              </div>
+
+              {/* 迷你瀑布流：手机端 1 列或 2 列，电脑端 2 列 */}
+              <div className="columns-2 gap-3 sm:gap-6">
+                {project.extraRenders.map((src, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "50px" }}
+                    transition={{ duration: 0.6, delay: (index % 3) * 0.1, ease: "easeOut" }}
+                    className="break-inside-avoid inline-block w-full mb-3 sm:mb-6 overflow-hidden rounded-lg bg-zinc-100 group"
+                  >
+                    <img 
+                      src={src} 
+                      alt={`Extra Render ${index + 1}`}
+                      className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                      loading="lazy"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
       
       {/* --- Footer (z-50) --- */}
       <div className="relative z-50">
