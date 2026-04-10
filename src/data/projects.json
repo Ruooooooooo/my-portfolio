@@ -218,19 +218,39 @@
       }
     ],
     "extraRenders": [
-      "/images/project-04/renders/1.png",
-      "/images/project-04/renders/2.png",
-      "/images/project-04/renders/3.png",
-      "/images/project-04/renders/4.png",
-      "/images/project-04/renders/5.png",
-      "/images/project-04/renders/6.png",
-      "/images/project-04/renders/7.png",
-      "/images/project-04/renders/8.png",
-      "/images/project-04/renders/9.png",
-      "/images/project-04/renders/10.png",
-      "/images/project-04/renders/13.png",
-      "/images/project-04/renders/11.png",
-      "/images/project-04/renders/12.png"
+      {
+        "title": "PHASE 02 // 2026.1改版",
+        "images": [
+          "/images/project-04/renders/30.png",
+          "/images/project-04/renders/21.png",
+          "/images/project-04/renders/22.png",
+          "/images/project-04/renders/23.png",
+          "/images/project-04/renders/24.png",
+          "/images/project-04/renders/25.png",
+          "/images/project-04/renders/26.png",
+          "/images/project-04/renders/27.png",
+          "/images/project-04/renders/28.png",
+          "/images/project-04/renders/29.png"
+        ]
+      },
+      {
+        "title": "PHASE 01 // 2025.12初版",
+        "images": [
+          "/images/project-04/renders/1.png",
+          "/images/project-04/renders/2.png",
+          "/images/project-04/renders/3.png",
+          "/images/project-04/renders/4.png",
+          "/images/project-04/renders/5.png",
+          "/images/project-04/renders/6.png",
+          "/images/project-04/renders/7.png",
+          "/images/project-04/renders/8.png",
+          "/images/project-04/renders/9.png",
+          "/images/project-04/renders/10.png",
+          "/images/project-04/renders/13.png",
+          "/images/project-04/renders/11.png",
+          "/images/project-04/renders/12.png"
+        ]
+      }
       ]
   },
   {
@@ -274,34 +294,44 @@
       }
     ],
     "extraRenders": [
-      "/images/project-05/renders/1.png",
-      "/images/project-05/renders/2.png",
-      "/images/project-05/renders/3.png",
-      "/images/project-05/renders/4.png",
-      "/images/project-05/renders/5.png",
-      "/images/project-05/renders/6.png",
-      "/images/project-05/renders/7.png",
-      "/images/project-05/renders/8.png",
-      "/images/project-05/renders/9.png",
-      "/images/project-05/renders/10.png",
-      "/images/project-05/renders/13.png",
-      "/images/project-05/renders/11.png",
-      "/images/project-05/renders/12.png",
-      "/images/project-05/renders/13.png",
-      "/images/project-05/renders/14.png",
-      "/images/project-05/renders/15.png",
-      "/images/project-05/renders/16.png",
-      "/images/project-05/renders/17.png",
-      "/images/project-05/renders/18.png",
-      "/images/project-05/renders/19.png",
-      "/images/project-05/renders/20.png",
-      "/images/project-05/renders/23.png",
-      "/images/project-05/renders/21.png",
-      "/images/project-05/renders/22.png",
-      "/images/project-05/renders/24.png",
-      "/images/project-05/renders/25.png",
-      "/images/project-05/renders/26.png",
-      "/images/project-05/renders/27.png"
+      {
+        "title": "PHASE 02 // 2026.2改版",
+        "images": [
+          "/images/project-05/renders/1.png",
+          "/images/project-05/renders/2.png",
+          "/images/project-05/renders/3.png",
+          "/images/project-05/renders/4.png",
+          "/images/project-05/renders/5.png",
+          "/images/project-05/renders/6.png",
+          "/images/project-05/renders/7.png",
+          "/images/project-05/renders/8.png",
+          "/images/project-05/renders/9.png",
+          "/images/project-05/renders/10.png",
+          "/images/project-05/renders/13.png",
+          "/images/project-05/renders/11.png",
+          "/images/project-05/renders/12.png",
+          "/images/project-05/renders/13.png",
+          "/images/project-05/renders/14.png",
+          "/images/project-05/renders/15.png",
+          "/images/project-05/renders/16.png"
+        ]
+      },
+      {
+        "title": "PHASE 01 // 2025初版",
+        "images": [
+          "/images/project-05/renders/17.png",
+          "/images/project-05/renders/18.png",
+          "/images/project-05/renders/19.png",
+          "/images/project-05/renders/20.png",
+          "/images/project-05/renders/23.png",
+          "/images/project-05/renders/21.png",
+          "/images/project-05/renders/22.png",
+          "/images/project-05/renders/24.png",
+          "/images/project-05/renders/25.png",
+          "/images/project-05/renders/26.png",
+          "/images/project-05/renders/27.png"
+        ]
+      }
       ]
   },
   {

@@ -6,15 +6,50 @@ import projectsData from '../data/projects.json';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+// 🔥 高级组件化：抽离出独立的“画廊分组”组件 🔥
+const GalleryGroup = ({ title, images }) => (
+  <div className="mb-20 last:mb-0">
+    
+    {/* 极简风分割线：左侧等宽小字，右侧 1px 细线延展 */}
+    <div className="flex items-center gap-4 mb-8">
+      <h2 className="text-xs md:text-sm font-mono text-zinc-400 uppercase tracking-widest whitespace-nowrap">
+        {title}
+      </h2>
+      <div className="h-[1px] w-full bg-zinc-200/60"></div>
+    </div>
+
+    {/* 该组专属的瀑布流 */}
+    <div className="columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-6">
+      {images.map((src, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "50px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="break-inside-avoid inline-block w-full mb-3 sm:mb-6 overflow-hidden rounded-lg sm:rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group bg-white"
+        >
+          <img 
+            src={src} 
+            alt={`${title} - Render ${index + 1}`}
+            className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+            loading="lazy"
+          />
+        </motion.div>
+      ))}
+    </div>
+  </div>
+);
+
+
 function ProjectRenders() {
   const { id } = useParams();
-  const project = projectsData.find((p) => p.id === id);
+  const project = projectsData.find((p) => String(p.id) === id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  // 如果找不到项目或者没有附加渲染图，显示提示
   if (!project || !project.extraRenders) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-zinc-50">
@@ -22,6 +57,13 @@ function ProjectRenders() {
       </div>
     );
   }
+
+  // 🔥 健壮的数据兼容处理 🔥
+  // 如果你有的项目写了新格式(包含 title 和 images)，有的项目还是旧格式(全是图片路径)
+  // 这个逻辑会自动把旧格式包裹成一个名为 "CONCEPT RENDERS" 的默认组，绝不报错！
+  const renderGroups = typeof project.extraRenders[0] === 'string'
+    ? [{ title: "CONCEPT RENDERS // 概念探索", images: project.extraRenders }]
+    : project.extraRenders;
 
   return (
     <div className="min-h-screen flex flex-col bg-zinc-50 text-gray-900">
@@ -46,24 +88,14 @@ function ProjectRenders() {
             </p>
           </div>
 
-          {/* ================= 瀑布流排版 ================= */}
-          <div className="columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-6">
-            {project.extraRenders.map((src, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "50px" }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="break-inside-avoid inline-block w-full mb-3 sm:mb-6 overflow-hidden rounded-lg sm:rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group bg-white"
-              >
-                <img 
-                  src={src} 
-                  alt={`${project.title} Render ${index + 1}`}
-                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                />
-              </motion.div>
+          {/* ================= 循环渲染所有的“画廊组” ================= */}
+          <div>
+            {renderGroups.map((group, index) => (
+              <GalleryGroup 
+                key={index} 
+                title={group.title} 
+                images={group.images} 
+              />
             ))}
           </div>
 
