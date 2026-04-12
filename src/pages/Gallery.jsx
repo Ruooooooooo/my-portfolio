@@ -105,6 +105,20 @@ function Gallery() {
     '/images/gallery/88.jpg',
     '/images/gallery/89.jpg',
     '/images/gallery/90.jpg',
+    '/images/gallery/91.jpg',
+    '/images/gallery/92.jpg',
+    '/images/gallery/93.jpg',
+    '/images/gallery/94.jpg',
+    '/images/gallery/95.jpg',
+    '/images/gallery/96.jpg',
+    '/images/gallery/97.jpg',
+    '/images/gallery/98.jpg',
+    '/images/gallery/99.jpg',
+    '/images/gallery/100.jpg',
+    '/images/gallery/101.jpg',
+    '/images/gallery/102.jpg',
+    '/images/gallery/103.jpg',
+    '/images/gallery/104.jpg',
   ];
 
   return (
