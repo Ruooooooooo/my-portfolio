@@ -1,21 +1,67 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Camera } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+// ==========================================
+// 🚀 神级组件 1：薛定谔的乱码文本 
+// ==========================================
+const DecryptText = ({ text, as: Component = "span", className }) => {
+  const [displayText, setDisplayText] = useState(text);
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*+/?=";
+  const isAnimating = useRef(false);
+
+  const triggerGlitch = () => {
+    if (isAnimating.current || !text) return;
+    isAnimating.current = true;
+    let iteration = 0;
+    const interval = setInterval(() => {
+      setDisplayText((prev) =>
+        text
+          .split("")
+          .map((letter, index) => {
+            if (index < iteration || letter === " ") return text[index];
+            return letters[Math.floor(Math.random() * letters.length)];
+          })
+          .join("")
+      );
+      if (iteration >= text.length) {
+        clearInterval(interval);
+        isAnimating.current = false;
+        setDisplayText(text);
+      }
+      iteration += 1 / 2;
+    }, 30);
+  };
+
+  const handleMouseEnter = () => {
+    if (Math.random() < 0.05) triggerGlitch();
+  };
+
+  useEffect(() => {
+    const randomTimer = setInterval(() => {
+      if (Math.random() < 0.02) triggerGlitch();
+    }, 8000);
+    return () => clearInterval(randomTimer);
+  }, [text]);
+
+  return (
+    <Component onMouseEnter={handleMouseEnter} className={className}>
+      {displayText}
+    </Component>
+  );
+};
+
 function Gallery() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // 1. 如果你有一张特别震撼的“横版大片”，把它放在这里作为镇楼图
   const heroImage = '/images/gallery/hero.jpg'; 
 
-  // 🔥 核心修改：使用 useMemo 包裹数组，并在内部打乱顺序 🔥
   const photos = useMemo(() => {
-    // 这里填入你所有的照片文件名 (保持你的原样)
     const originalPhotos = [
       '/images/gallery/1.jpg', '/images/gallery/2.jpg', '/images/gallery/3.jpg', '/images/gallery/4.jpg', '/images/gallery/5.jpg',
       '/images/gallery/6.jpg', '/images/gallery/7.jpg', '/images/gallery/8.jpg', '/images/gallery/9.jpg', '/images/gallery/10.jpg',
@@ -40,7 +86,6 @@ function Gallery() {
       '/images/gallery/101.jpg', '/images/gallery/102.jpg', '/images/gallery/103.jpg', '/images/gallery/104.jpg',
     ];
 
-    // Fisher-Yates 洗牌算法 (极其高效，不到 1 毫秒就能打乱)
     const shuffled = [...originalPhotos];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -48,37 +93,36 @@ function Gallery() {
     }
     
     return shuffled;
-  }, []); // 空依赖数组 [] 表示只在组件挂载时洗牌一次
+  }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-50 text-gray-900">
+    <div className="min-h-screen flex flex-col bg-zinc-50 text-gray-900 selection:bg-zinc-900 selection:text-[#84FF6B]">
       <Navbar />
       
       <main className="flex-1 pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* ================= 返回与标题区 ================= */}
           <div className="mb-12 md:mb-20">
             <Link to="/" className="inline-flex items-center text-gray-500 hover:text-gray-900 transition-colors mb-8 group">
               <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-              返回首页
+              <DecryptText text="返回首页" />
             </Link>
-            <h1 className="text-3xl md:text-5xl font-light italic text-gray-900 flex items-center gap-4">
+            <h1 className="text-3xl md:text-5xl font-light italic text-gray-900 flex items-center gap-4 cursor-default">
               <Camera className="w-8 h-8 md:w-10 md:h-10 text-gray-400" />
-              光影日常 / Photography
+              <DecryptText text="光影日常 / Photography" />
             </h1>
-            <p className="mt-4 text-gray-500 text-sm md:text-base max-w-2xl">
-              这里没有复杂的交互逻辑，只有我平时记录的一些瞬间。构图、色彩与光影的练习场。
+            <p className="mt-4 text-gray-500 text-sm md:text-base max-w-2xl cursor-default">
+              <DecryptText text="这里没有复杂的交互逻辑，只有我平时记录的一些瞬间。构图、色彩与光影的练习场。" />
             </p>
           </div>
 
-          {/* 🔥 顶部横幅“镇楼图”展示区 🔥 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="w-full mb-8 overflow-hidden rounded-2xl shadow-sm"
+            className="w-full mb-8 overflow-hidden rounded-2xl shadow-sm bg-white"
           >
+            {/* 恢复清爽 */}
             <img
               src={heroImage}
               alt="Featured Landscape"
@@ -86,18 +130,17 @@ function Gallery() {
             />
           </motion.div>
 
-          {/* ================= 纯 CSS 瀑布流排版 (Masonry) ================= */}
           <div className="columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-6">
             {photos.map((src, index) => (
               <motion.div
-                // 必须把 key 设为 src，这样打乱顺序后 React 才能正确追踪图片，不会出现闪烁
                 key={src}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "50px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="break-inside-avoid inline-block w-full mb-3 sm:mb-6 overflow-hidden rounded-lg sm:rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group bg-white"
+                className="break-inside-avoid inline-block w-full mb-3 sm:mb-6 rounded-lg sm:rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 group bg-white overflow-hidden"
               >
+                {/* 恢复清爽，保留原有的 hover 放大效果 */}
                 <img 
                   src={src} 
                   alt={`Photography ${index + 1}`}
