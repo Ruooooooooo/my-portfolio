@@ -87,20 +87,34 @@ function ProjectDetail() {
 
     // 极端模式：根据代号执行强视觉冲击的暴力重构
     switch (effect) {
-      case 'gravity': // 陨石砸地
+      case 'gravity': // 真正的重物砸地：零回弹，极速下坠，沉重触底
         return {
-          container: { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.15 } } },
+          container: { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.1 } } },
           item: {
-            hidden: { opacity: 0, y: -800, rotate: -15, scale: 1.1 },
-            show: { opacity: 1, y: 0, rotate: 0, scale: 1, transition: { type: "spring", stiffness: 350, damping: 10 } }
+            hidden: { opacity: 0, y: -1000, rotate: -8 }, // 从极高处，带着轻微随机倾斜下落
+            show: { 
+              opacity: 1, 
+              y: 0, 
+              rotate: 0, 
+              // 弃用 spring，改用极其凌厉的自定义阻尼曲线，模拟“砰”的一声砸实
+              transition: { duration: 0.6, ease: [0.75, 0, 0.25, 1] } 
+            }
           }
         };
-      case 'z-depth': // 深渊推近
+      case 'z-depth': // 极致的空间推门：巨大的缩放落差和透视感
         return {
-          container: { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.2 } } },
+          container: { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.25 } } },
           item: {
-            hidden: { opacity: 0, scale: 0.1, filter: 'blur(40px)' },
-            show: { opacity: 1, scale: 1, filter: 'blur(0px)', transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } }
+            // 初始状态极大且模糊，就像你紧贴着门板，然后猛地推开拉远
+            hidden: { opacity: 0, scale: 5, filter: 'blur(50px)', y: 100 },
+            show: { 
+              opacity: 1, 
+              scale: 1, 
+              filter: 'blur(0px)', 
+              y: 0,
+              // 使用极其舒缓的减速曲线，营造巨大的空间跨度感
+              transition: { duration: 1.5, ease: [0.16, 1, 0.3, 1] } 
+            }
           }
         };
       case 'breathe': // 濒死心跳
